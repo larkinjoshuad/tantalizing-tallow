@@ -188,7 +188,7 @@ The "products" array contains product IDs (integers) to display as cards. Includ
 - Routine placement: Morning / Daytime (final step)
 - Pairs with: Hydrating serums, lightweight facial oils, gentle cleansers
 
-**ID 18 — Rugged Revival / Midnight Vanilla Manuka Face Cream — from $10** (Men's Collection)
+**ID 18 — Rugged Revival / Midnight Vanilla Manuka Face Cream — $20** (Men's Collection)
 - Primary skin types: Dry, Mature
 - Secondary: Combination, Sensitive
 - Hero ingredients: Vanilla-infused tallow (nourishing/softening), Manuka honey 829 (soothe/support), Castor oil (conditions/locks moisture)

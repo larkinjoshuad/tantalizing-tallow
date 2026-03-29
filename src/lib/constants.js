@@ -217,7 +217,7 @@ export const PRODUCTS = [
   },
   {
     id: 18, name: "Rugged Revival — Men's Collection", handle: "mens-face-cream",
-    price: 10, priceFrom: true,
+    price: 20,
     category: "mens", skinType: ["dry", "mature", "combination", "sensitive"],
     shortDesc: "Men's skincare collection",
     description: "A rich, masculine face cream designed to deeply nourish and smooth the skin while leaving a subtle, cologne-inspired scent. Ideal for restoring softness and supporting a healthy, well-groomed appearance.",

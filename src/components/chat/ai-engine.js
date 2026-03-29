@@ -103,7 +103,7 @@ const RESPONSES = {
       products: [17],
     },
     ruggedRevival: {
-      text: "**Rugged Revival — Men's Collection** — cedarwood, sandalwood, and black pepper. Post-shave healing, deep moisture, no-nonsense. From $10, 4.7★.",
+      text: "**Rugged Revival — Men's Collection** — a rich, masculine face cream with Manuka honey 829 and vanilla-infused tallow. Post-shave healing, deep moisture, cologne-inspired scent. $20, 4.7★.",
       products: [18],
     },
   },
