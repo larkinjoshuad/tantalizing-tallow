@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a84c"/>
+      <stop offset="40%" stop-color="#e2c97e"/>
+      <stop offset="60%" stop-color="#c9a84c"/>
+      <stop offset="100%" stop-color="#a68935"/>
+    </linearGradient>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b8973f"/>
+      <stop offset="50%" stop-color="#d4b65e"/>
+      <stop offset="100%" stop-color="#a68935"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="400" fill="#0a0a0a"/>
+
+  <!-- Three Leaves -->
+  <g transform="translate(300, 95)" fill="none" stroke="url(#leafGrad)" stroke-width="1.5">
+    <!-- Center leaf -->
+    <path d="M0,-55 C8,-45 14,-25 14,-5 C14,10 8,20 0,28 C-8,20 -14,10 -14,-5 C-14,-25 -8,-45 0,-55Z" fill="url(#leafGrad)" opacity="0.85"/>
+    <path d="M0,-55 C0,-30 0,0 0,28" stroke="#0a0a0a" stroke-width="0.8" opacity="0.3"/>
+    <!-- Right leaf -->
+    <g transform="rotate(28)">
+      <path d="M0,-50 C7,-40 12,-22 12,-5 C12,8 7,17 0,24 C-7,17 -12,8 -12,-5 C-12,-22 -7,-40 0,-50Z" fill="url(#leafGrad)" opacity="0.7"/>
+      <path d="M0,-50 C0,-27 0,0 0,24" stroke="#0a0a0a" stroke-width="0.8" opacity="0.3"/>
+    </g>
+    <!-- Left leaf -->
+    <g transform="rotate(-28)">
+      <path d="M0,-50 C7,-40 12,-22 12,-5 C12,8 7,17 0,24 C-7,17 -12,8 -12,-5 C-12,-22 -7,-40 0,-50Z" fill="url(#leafGrad)" opacity="0.7"/>
+      <path d="M0,-50 C0,-27 0,0 0,24" stroke="#0a0a0a" stroke-width="0.8" opacity="0.3"/>
+    </g>
+  </g>
+
+  <!-- TANTALIZING -->
+  <text x="300" y="215" text-anchor="middle" font-family="'Cormorant Garamond', 'Playfair Display', 'Georgia', serif" font-size="62" font-weight="700" letter-spacing="8" fill="url(#goldGrad)">TANTALIZING</text>
+
+  <!-- TALLOW -->
+  <text x="300" y="265" text-anchor="middle" font-family="'Cormorant Garamond', 'Playfair Display', 'Georgia', serif" font-size="36" font-weight="400" letter-spacing="14" fill="url(#goldGrad)" opacity="0.85">TALLOW</text>
+
+  <!-- Decorative scroll/divider -->
+  <g transform="translate(300, 295)" fill="none" stroke="url(#goldGrad)" stroke-width="1.2" opacity="0.7">
+    <line x1="-60" y1="0" x2="60" y2="0"/>
+    <path d="M-60,0 C-50,8 -35,12 -20,8" />
+    <path d="M60,0 C50,8 35,12 20,8" />
+    <circle cx="0" cy="6" r="2" fill="url(#goldGrad)"/>
+  </g>
+</svg>
