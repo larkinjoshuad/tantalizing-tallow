@@ -47,7 +47,7 @@ const RESPONSES = {
       products: [3],
     },
     vanillaBodyButter: {
-      text: "Our body butters range from $6 to $20! **Vanilla Tallow Body Butter** (best value, from $6), **Custom Whipped** ($20, choose your scent), or **Frosted Mint Shimmer** ($16, subtle glow).",
+      text: "Our body butters range from $6 to $20! **Vanilla Tallow Body Butter** (best value, from $6), **Custom Whipped** ($20, choose your scent), or **Summer Shimmer** ($16, radiant sunkissed glow).",
       products: [4, 5, 8],
     },
     customButter: {
@@ -63,7 +63,7 @@ const RESPONSES = {
       products: [7],
     },
     shimmer: {
-      text: "**Frosted Mint Shimmer Body Butter** — cooling mint meets subtle shimmer for skin that glows! A fun, playful option for nights out or everyday radiance. $16, 4.7★.",
+      text: "**Summer Shimmer Body Butter** — a luxurious whipped body butter with a radiant, sunkissed golden shimmer! Perfect for events, date nights, or everyday radiance. $16, 4.7★.",
       products: [8],
     },
     hairOil: {
@@ -262,7 +262,7 @@ const INTENT_MAP = [
   { pattern: /frankincense.*(manuka|honey)|manuka.*(frank|cream)/i, key: "products.frankManuka" },
   { pattern: /frankincense.*(vanilla|face)/i, key: "products.frankVanilla" },
   { pattern: /turmeric|orange blossom/i, key: "products.turmeric" },
-  { pattern: /shimmer|frosted mint|glitter/i, key: "products.shimmer" },
+  { pattern: /shimmer|summer shimmer|frosted mint|glitter|sunkissed|sun kissed/i, key: "products.shimmer" },
   { pattern: /custom|my own scent|choose.*scent/i, key: "products.customButter" },
   { pattern: /coffee.*(scrub|sugar)|sugar.*(scrub|coffee)|exfoliat/i, key: "products.coffeeScrub" },
   { pattern: /vanilla sugar|sugar creme/i, key: "products.vanillaSugarCreme" },

@@ -15,7 +15,7 @@ The "products" array contains product IDs (integers) to display as cards. Includ
 
 ## PRODUCT CATALOG WITH DETAILED PROFILES
 
-### DETAILED PROFILE PRODUCTS (14 products with full specifications)
+### DETAILED PROFILE PRODUCTS (15 products with full specifications)
 
 **ID 1 — Blue Tansy Whipped Face Cream — $20+** (Bestseller)
 - Primary skin types: Dry, Sensitive
@@ -88,6 +88,19 @@ The "products" array contains product IDs (integers) to display as cards. Includ
 - Comedogenic risk: Medium | Rating: 4.8★ (41 reviews)
 - Routine placement: Morning and Night
 - Pairs with: Hydrating toners/facial mists, gentle non-stripping cleansers, simple hydrating/calming serums
+
+**ID 8 — Summer Shimmer Body Butter — $16** (BODY ONLY)
+- Primary skin types: Dry, Normal
+- Secondary: Combination, Mature
+- Hero ingredients: Beef tallow (deep skin-compatible moisture), Rosehip oil (smoother radiant skin), Castor oil (softness/glossy finish), Gold mica (luminous shimmering glow)
+- Texture: Firm, fluffy, whipped, melts into skin with rich silky finish
+- Scent: Bright, tropical, citrusy with creamy beachy undertones
+- Best for: Before events/outings for glowing skin, daily body moisturizing with radiance, highlighting shoulders/legs/collarbones, post-shower hydration
+- NOT ideal for: Very oily skin, those sensitive to fragranced products, FACIAL USE
+- Comedogenic risk: Medium | Rating: 4.7★ (19 reviews)
+- Routine placement: Morning and Night
+- Pairs with: Body scrub (ID 16) for enhanced glow, lightweight body mist, layer over damp skin, non-shimmer body butter at night
+- **NOTE: Body butter ONLY — not for facial use.**
 
 **ID 9 — Tallow Hair & Scalp Elixir — $18**
 - Primary skin/hair types: Dry, Mature
@@ -222,11 +235,9 @@ This is a simple, entry-level face cream for customers who want gentle hydration
 - Pairs with: Hydrating serum (ID 10), gentle cleanser, facial mist or toner
 - Great entry point for customers new to tallow skincare.
 
-### STANDARD PRODUCT DESCRIPTIONS (5 products with brief specs)
+### STANDARD PRODUCT DESCRIPTIONS (4 products with brief specs)
 
 ID 5 — **Custom Whipped Body Butter** — $20, 4.8★ (56 reviews). Choose unscented, essential oil, or fragrance. Hand-whipped.
-
-ID 8 — **Frosted Mint Shimmer Body Butter** — $16, 4.7★. Cooling mint + subtle shimmer. Fun, glowy.
 
 ID 13 — **Minted Vanilla Tallow Lip Balm** — from $6, 4.9★ (102 reviews, Top Rated)
 - Primary skin types: Dry, Sensitive
