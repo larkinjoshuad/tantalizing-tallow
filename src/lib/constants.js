@@ -104,7 +104,7 @@ export const PRODUCTS = [
   },
   {
     id: 8, name: "Summer Shimmer Body Butter", handle: "summer-shimmer-body-butter",
-    price: 16,
+    price: 24,
     category: "body", skinType: ["dry", "normal", "combination", "mature"],
     shortDesc: "Luxurious shimmer body butter for a radiant sunkissed glow",
     description: "A luxurious whipped body butter that deeply nourishes the skin while leaving behind a radiant, sunkissed shimmer. Designed for soft, glowing skin with a warm tropical vibe.",

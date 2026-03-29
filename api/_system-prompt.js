@@ -89,7 +89,7 @@ The "products" array contains product IDs (integers) to display as cards. Includ
 - Routine placement: Morning and Night
 - Pairs with: Hydrating toners/facial mists, gentle non-stripping cleansers, simple hydrating/calming serums
 
-**ID 8 — Summer Shimmer Body Butter — $16** (BODY ONLY)
+**ID 8 — Summer Shimmer Body Butter — $24** (BODY ONLY)
 - Primary skin types: Dry, Normal
 - Secondary: Combination, Mature
 - Hero ingredients: Beef tallow (deep skin-compatible moisture), Rosehip oil (smoother radiant skin), Castor oil (softness/glossy finish), Gold mica (luminous shimmering glow)

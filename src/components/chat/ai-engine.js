@@ -47,7 +47,7 @@ const RESPONSES = {
       products: [3],
     },
     vanillaBodyButter: {
-      text: "Our body butters range from $6 to $20! **Vanilla Tallow Body Butter** (best value, from $6), **Custom Whipped** ($20, choose your scent), or **Summer Shimmer** ($16, radiant sunkissed glow).",
+      text: "Our body butters range from $6 to $24! **Vanilla Tallow Body Butter** (best value, from $6), **Custom Whipped** ($20, choose your scent), or **Summer Shimmer** ($24, radiant sunkissed glow).",
       products: [4, 5, 8],
     },
     customButter: {
@@ -63,7 +63,7 @@ const RESPONSES = {
       products: [7],
     },
     shimmer: {
-      text: "**Summer Shimmer Body Butter** — a luxurious whipped body butter with a radiant, sunkissed golden shimmer! Perfect for events, date nights, or everyday radiance. $16, 4.7★.",
+      text: "**Summer Shimmer Body Butter** — a luxurious whipped body butter with a radiant, sunkissed golden shimmer! Perfect for events, date nights, or everyday radiance. $24, 4.7★.",
       products: [8],
     },
     hairOil: {
