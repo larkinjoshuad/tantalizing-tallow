@@ -65,6 +65,30 @@ The "products" array contains product IDs (integers) to display as cards. Includ
 - Routine placement: Morning and Night
 - Pairs with: Hydrating toners/facial mists, gentle non-stripping cleansers, simple hydrating/calming serums
 
+**ID 9 — Tallow Hair & Scalp Elixir — $18**
+- Primary skin/hair types: Dry, Mature
+- Secondary: Combination, Sensitive
+- Hero ingredients: Beef tallow (nourishing/moisture-rich), Castor oil (thicker hair appearance), Argan oil (shine/softness), Manuka honey (condition/smooth), Rosemary (scalp vitality)
+- Texture: Lightweight oil, silky, fast-absorbing with a soft finish
+- Scent: Fresh, herbal, slightly minty and invigorating
+- Best for: Dry or flaky scalp, thinning or dull-looking hair, split ends and breakage, weekly scalp treatments or overnight repair, adding shine to styled hair
+- NOT ideal for: Very oily scalp types prone to buildup, those sensitive to essential oils or strong herbal scents
+- Comedogenic risk: Medium | Rating: 4.6★ (34 reviews)
+- Routine placement: Night (preferred), or light use during day
+- Pairs with: Gentle shampoo for cleansing after treatments, lightweight conditioner, leave-in conditioner for daily maintenance
+
+**ID 11 — Lavender + Magnesium + Vanilla Whipped Body Butter — from $18** (Fan Favorite)
+- Primary skin types: Dry, Sensitive
+- Secondary: Mature, Combination
+- Hero ingredients: Magnesium (muscle relaxation/tension ease), Lavender (calm/relaxation), Vanilla (warmth/emotional comfort), Grass-fed tallow (nourishment/barrier)
+- Texture: Rich, whipped, creamy, deeply moisturizing
+- Scent: Soft lavender with warm, creamy vanilla undertones
+- Best for: Nighttime relaxation routine, before bed to support sleep, after showers for full-body hydration, post-workout or after long days for muscle relief, stressful or high-tension days
+- NOT ideal for: Very oily skin types, those preferring lightweight/fast-absorbing lotions, those sensitive to rich occlusive textures
+- Comedogenic risk: Medium | Rating: 4.9★ (67 reviews)
+- Routine placement: Night
+- Pairs with: Gentle cleanser or shower routine before application, calming face cream, nighttime mist or relaxation spray
+
 **ID 12 — Luxe Face Cream — $60** (Premium Luxe)
 - Primary skin types: Dry, Mature
 - Secondary: Combination, Sensitive
@@ -103,6 +127,15 @@ The "products" array contains product IDs (integers) to display as cards. Includ
 - Pairs with: Body butter/moisturizer after to seal hydration, gentle body cleanser, body oil for extra glow
 - **NOTE: Body scrub ONLY — not for face. Do not recommend for facial use.**
 
+**Supplemental Product Knowledge — Hair Treatment (weekly deep-conditioning)**
+This is an intensive weekly hair repair treatment distinct from the daily Hair & Scalp Elixir (ID 9):
+- Rich, balm-like texture vs. the Elixir's lightweight oil
+- Best for: weekly deep repair, pre-wash mask for dry/damaged hair, overnight treatment for brittle ends
+- Hero ingredients: Tallow, Argan oil, Black seed oil, Jojoba oil, Rosemary
+- NOT ideal for: Very oily scalps, fine hair prone to buildup
+- Scent: Warm vanilla with soft floral notes
+- If a customer asks about intensive hair repair, mention both the daily Elixir (ID 9) and the deep-conditioning Hair Treatment as options.
+
 ### STANDARD PRODUCT DESCRIPTIONS (10 products with brief specs)
 
 ID 2 — **Clarifying Face Cream** — $20, 4.8★ (32 reviews). Lightweight, non-comedogenic for acne-prone/oily skin.
@@ -113,13 +146,19 @@ ID 5 — **Custom Whipped Body Butter** — $20, 4.8★ (56 reviews). Choose uns
 
 ID 8 — **Frosted Mint Shimmer Body Butter** — $16, 4.7★. Cooling mint + subtle shimmer. Fun, glowy.
 
-ID 9 — **Hair & Scalp Oil** — $18, 4.6★. Rosemary, castor oil, argan, biotin. Growth, frizz reduction, shine.
-
 ID 10 — **Hyaluronic Acid Serum** — $12, 4.7★. Layer under tallow cream. Draws + locks moisture. All skin types.
 
-ID 11 — **Lavender & Vanilla Magnesium Sleep Balm** — from $18, 4.9★ (Fan Favorite). Magnesium absorbs through skin, relaxes muscles.
-
-ID 13 — **Minted Vanilla Lip Balm** — from $6, 4.9★ (102 reviews, Top Rated). Manuka honey. Heals cracked lips, never waxy.
+ID 13 — **Minted Vanilla Tallow Lip Balm** — from $6, 4.9★ (102 reviews, Top Rated)
+- Primary skin types: Dry, Sensitive
+- Secondary: Mature, Combination
+- Hero ingredients: Grass-fed tallow (nourishing hydration), Beeswax (seals in moisture), Manuka honey 829 (softness/hydration), Vitamin E (conditions/protects), Peppermint (cooling/refreshing)
+- Texture: Smooth, balm-like, slightly firm with a silky glide
+- Scent: Light vanilla sweetness with a fresh minty finish
+- Best for: Daily lip hydration, dry or cracked lips, on-the-go moisture, prepping lips before makeup or bedtime
+- NOT ideal for: Those sensitive to mint, those preferring unscented products
+- Comedogenic risk: Low | Rating: 4.9★ (102 reviews)
+- Routine placement: Morning and night (as needed)
+- Pairs with: Facial moisturizer, hydrating mist, before lip color
 
 ID 15 — **Sun Veil** — $15, 4.6★. Non-nano zinc oxide, tallow base. Mineral protection, no white cast.
 
@@ -186,7 +225,9 @@ ID 18 — **Rugged Revival — Men's Collection** — from $10, 4.7★. Cedarwoo
 - Primary: Sleep Balm (ID 11)
 
 **Hair/Scalp:**
-- Primary: Hair Oil (ID 9)
+- Daily maintenance/shine: Hair & Scalp Elixir (ID 9)
+- Weekly deep repair: Hair Treatment (supplemental product)
+- NOT ideal for: Very oily scalps prone to buildup
 
 **Lips:**
 - Primary: Lip Balm (ID 13)
