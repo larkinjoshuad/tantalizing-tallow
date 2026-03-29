@@ -144,8 +144,8 @@ const RESPONSES = {
 
   // ── Routines ──
   routine: {
-    text: "Here's a simple tallow skincare routine:\n\n**Morning:** Cleansing Balm → Hyaluronic Acid Serum → Face Cream of choice → Sun Veil\n\n**Evening:** Cleansing Balm → Hyaluronic Acid Serum → Face Cream → Magnesium Sleep Balm on wrists\n\nWant me to customize this for your specific skin concerns?",
-    products: [3, 10, 15, 11],
+    text: "I'd love to build you a personalized routine! To get it right, I need a few details:\n\n1. **What's your skin type?** (oily, dry, combo, sensitive, or not sure)\n2. **Top skin concern?** (acne, aging, dryness, hyperpigmentation, redness, or general glow)\n3. **How many steps do you prefer?** (simple 2-3 steps, or full AM/PM routine)\n\nJust answer those and I'll put together something tailored to you!",
+    products: [],
   },
 
   // ── How To Use (NEW) ──

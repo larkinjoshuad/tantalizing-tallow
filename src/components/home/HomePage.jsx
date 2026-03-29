@@ -152,6 +152,10 @@ export default function HomePage() {
                 Shop Now <ChevronRight size={18} />
               </Link>
               <button
+                onClick={() => {
+                  const btn = document.querySelector('[aria-label="Open TallowExpert chat"]');
+                  if (btn) btn.click();
+                }}
                 style={{
                   padding: "16px 36px",
                   background: "transparent",
