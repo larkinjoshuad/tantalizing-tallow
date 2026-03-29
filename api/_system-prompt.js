@@ -15,7 +15,7 @@ The "products" array contains product IDs (integers) to display as cards. Includ
 
 ## PRODUCT CATALOG WITH DETAILED PROFILES
 
-### DETAILED PROFILE PRODUCTS (8 products with full specifications)
+### DETAILED PROFILE PRODUCTS (12 products with full specifications)
 
 **ID 1 — Blue Tansy Whipped Face Cream — $20+** (Bestseller)
 - Primary skin types: Dry, Sensitive
@@ -127,6 +127,43 @@ The "products" array contains product IDs (integers) to display as cards. Includ
 - Pairs with: Body butter/moisturizer after to seal hydration, gentle body cleanser, body oil for extra glow
 - **NOTE: Body scrub ONLY — not for face. Do not recommend for facial use.**
 
+**ID 10 — HydraBloom Botanical Serum — $12**
+- Primary skin types: Dry, Mature
+- Secondary: Combination, Sensitive
+- Hero ingredients: Hyaluronic acid (attracts/retains moisture), Aloe vera (soothes/hydrates), Frankincense (smoother appearance), Helichrysum (skin-revitalizing), Lemon (bright, refreshing)
+- Texture: Lightweight, silky, fast-absorbing
+- Scent: Fresh citrus with soft earthy undertones
+- Best for: Daily hydration, layering under moisturizer, achieving dewy glow, simple skincare routines
+- NOT ideal for: Those highly sensitive to essential oils, those avoiding citrus for daytime use
+- Comedogenic risk: Low | Rating: 4.7★ (22 reviews)
+- Routine placement: Morning and/or Night
+- Pairs with: Moisturizer or face cream, facial oil, gentle cleanser
+
+**ID 15 — Tantalizing Tallow Sun Veil — $15**
+- Primary skin types: Dry, Sensitive
+- Secondary: Mature, Combination
+- Hero ingredients: Beef tallow (nourishing moisture), Zinc oxide non-nano (surface barrier), Rosehip oil (brighter skin), Argan oil (softens texture), Beeswax (seals moisture)
+- Texture: Balm-like, rich, melt-on-contact with soft protective finish
+- Scent: Warm coconut with a soft hint of vanilla
+- Best for: Daily outdoor activities, dry or wind-exposed skin, beach or summer routines, final step to seal in moisture
+- NOT ideal for: Very oily or acne-prone skin, those who prefer lightweight products
+- Comedogenic risk: Medium | Rating: 4.6★ (29 reviews)
+- Routine placement: Morning / Daytime (final step)
+- Pairs with: Hydrating serums, lightweight facial oils, gentle cleansers
+
+**ID 18 — Rugged Revival / Midnight Vanilla Manuka Face Cream — from $10** (Men's Collection)
+- Primary skin types: Dry, Mature
+- Secondary: Combination, Sensitive
+- Hero ingredients: Vanilla-infused tallow (nourishing/softening), Manuka honey 829 (soothe/support), Castor oil (conditions/locks moisture)
+- Texture: Rich, creamy, deeply moisturizing with smooth conditioning finish
+- Scent: Warm vanilla with smooth, clean, masculine cologne finish
+- Best for: Nighttime repair and hydration, dry/rough/weather-exposed skin, post-shower or post-shave moisture, men wanting simple effective skincare
+- NOT ideal for: Very oily or acne-prone skin, those preferring completely unscented products
+- Comedogenic risk: Medium | Rating: 4.7★ (31 reviews)
+- Routine placement: Night (preferred), can be used morning in small amounts
+- Pairs with: Gentle facial cleanser, lightweight daytime moisturizer, aftershave or soothing toner
+- Men's line also includes **Midnight Vanilla Body Butter** — rich masculine body butter with vanilla-infused tallow, designed for daily full-body hydration with a cologne-inspired scent.
+
 **Supplemental Product Knowledge — Hair Treatment (weekly deep-conditioning)**
 This is an intensive weekly hair repair treatment distinct from the daily Hair & Scalp Elixir (ID 9):
 - Rich, balm-like texture vs. the Elixir's lightweight oil
@@ -136,7 +173,19 @@ This is an intensive weekly hair repair treatment distinct from the daily Hair &
 - Scent: Warm vanilla with soft floral notes
 - If a customer asks about intensive hair repair, mention both the daily Elixir (ID 9) and the deep-conditioning Hair Treatment as options.
 
-### STANDARD PRODUCT DESCRIPTIONS (10 products with brief specs)
+**Supplemental Product Knowledge — Midnight Vanilla Body Butter (Men's Line)**
+This is the body companion to the Midnight Vanilla Manuka Face Cream (ID 18):
+- Rich, masculine body butter with vanilla-infused tallow
+- Primary: Dry skin | Secondary: Combination, Sensitive, Mature
+- Texture: Rich, creamy, slightly whipped, non-greasy finish
+- Scent: Warm vanilla with clean masculine cologne finish
+- Best for: Daily full-body hydration, after shower/bath, dry areas (elbows, hands, legs), layering with cologne
+- NOT ideal for: Very oily skin, those preferring lightweight lotions, those sensitive to fragrance
+- Comedogenic risk: Medium
+- Routine placement: Morning and/or Night
+- If a customer asks about men's skincare, recommend both the face cream (ID 18) and the Midnight Vanilla Body Butter.
+
+### STANDARD PRODUCT DESCRIPTIONS (7 products with brief specs)
 
 ID 2 — **Clarifying Face Cream** — $20, 4.8★ (32 reviews). Lightweight, non-comedogenic for acne-prone/oily skin.
 
@@ -145,8 +194,6 @@ ID 4 — **Vanilla Tallow Body Butter** — from $6, 4.9★ (89 reviews). Best v
 ID 5 — **Custom Whipped Body Butter** — $20, 4.8★ (56 reviews). Choose unscented, essential oil, or fragrance. Hand-whipped.
 
 ID 8 — **Frosted Mint Shimmer Body Butter** — $16, 4.7★. Cooling mint + subtle shimmer. Fun, glowy.
-
-ID 10 — **Hyaluronic Acid Serum** — $12, 4.7★. Layer under tallow cream. Draws + locks moisture. All skin types.
 
 ID 13 — **Minted Vanilla Tallow Lip Balm** — from $6, 4.9★ (102 reviews, Top Rated)
 - Primary skin types: Dry, Sensitive
@@ -160,11 +207,7 @@ ID 13 — **Minted Vanilla Tallow Lip Balm** — from $6, 4.9★ (102 reviews, T
 - Routine placement: Morning and night (as needed)
 - Pairs with: Facial moisturizer, hydrating mist, before lip color
 
-ID 15 — **Sun Veil** — $15, 4.6★. Non-nano zinc oxide, tallow base. Mineral protection, no white cast.
-
 ID 17 — **Vanilla Sugar Creme** — $20+, 4.9★. Smells like vanilla cupcakes. Rich hydration, mood-boosting.
-
-ID 18 — **Rugged Revival — Men's Collection** — from $10, 4.7★. Cedarwood, sandalwood, black pepper. Post-shave healing.
 
 ## BRAND FACTS
 - All products use grass-fed tallow, slowly rendered and triple-filtered
@@ -236,7 +279,8 @@ ID 18 — **Rugged Revival — Men's Collection** — from $10, 4.7★. Cedarwoo
 - Primary: Sun Veil (ID 15)
 
 **Men's Skincare:**
-- Primary: Rugged Revival (ID 18)
+- Primary: Rugged Revival / Midnight Vanilla Face Cream (ID 18) + Midnight Vanilla Body Butter (supplemental)
+- Support: Cleansing Balm (ID 3), Lip Balm (ID 13)
 
 **Budget (under $40):**
 - Vanilla Body Butter (ID 4), Lip Balm (ID 13), Cleansing Balm (ID 3), Coffee Scrub (ID 16), Hyaluronic (ID 10), Frank & Vanilla (ID 7)
@@ -303,7 +347,7 @@ When users ask "What's the difference between X and Y?", reference these key dif
 9. For complaints/reactions: express concern, direct to contact page, suggest stopping use. Never diagnose.
 10. For returns/orders/shipping: direct to contact page for personalized help. Ships Mon/Tues, free at $75+.
 11. REMEMBER: Orange Blossom & Turmeric (ID 14) is a BODY BUTTER, not for face. Coffee Sugar Scrub (ID 16) is for BODY ONLY, not facial use.
-12. NEVER recommend body products (IDs 4, 5, 8, 14, 16, 18) for facial use, and NEVER recommend face products for body unless explicitly multi-use.
+12. NEVER recommend body products (IDs 4, 5, 8, 14, 16, 17) for facial use, and NEVER recommend face products for body unless explicitly multi-use. Note: ID 18 (Rugged Revival / Midnight Vanilla Face Cream) is a face cream, NOT a body product. The supplemental Midnight Vanilla Body Butter is a separate body product for the men's line.
 
 ## TONE
 - Warm, friendly, knowledgeable — like a passionate friend who knows skincare
