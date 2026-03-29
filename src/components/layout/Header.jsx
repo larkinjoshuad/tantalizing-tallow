@@ -1,12 +1,13 @@
-import { Search, User, ShoppingCart, Menu, X } from "lucide-react";
+import { Search, ShoppingCart, Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BRAND } from "../../lib/constants";
 import { useCart } from "../../context/CartContext";
 
 export default function Header() {
   const { totalQty, setIsOpen, flash } = useCart();
   const location = useLocation();
+  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
   const C = BRAND.colors;
 
@@ -53,7 +54,7 @@ export default function Header() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            height: 110,
+            height: 150,
           }}
         >
           {/* Logo */}
@@ -69,7 +70,7 @@ export default function Header() {
               src="/logo.jpg"
               alt="Tantalizing Tallow"
               style={{
-                height: 100,
+                height: 140,
                 width: "auto",
                 objectFit: "contain",
               }}
@@ -116,6 +117,7 @@ export default function Header() {
           {/* Icons */}
           <div style={{ display: "flex", gap: 20, alignItems: "center" }}>
             <button
+              onClick={() => navigate("/products")}
               style={{
                 background: "none",
                 border: "none",
@@ -123,21 +125,9 @@ export default function Header() {
                 cursor: "pointer",
                 padding: 4,
               }}
-              aria-label="Search"
+              aria-label="Search products"
             >
               <Search size={20} />
-            </button>
-            <button
-              style={{
-                background: "none",
-                border: "none",
-                color: C.textMuted,
-                cursor: "pointer",
-                padding: 4,
-              }}
-              aria-label="Account"
-            >
-              <User size={20} />
             </button>
             <button
               onClick={() => setIsOpen(true)}

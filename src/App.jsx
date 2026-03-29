@@ -7,6 +7,8 @@ import TallowExpertChat from "./components/chat/TallowExpertChat";
 import HomePage from "./components/home/HomePage";
 import ProductsPage from "./components/product/ProductsPage";
 import ProductDetail from "./components/product/ProductDetail";
+import AboutPage from "./components/pages/AboutPage";
+import FAQPage from "./components/pages/FAQPage";
 import { BRAND } from "./lib/constants";
 
 export default function App() {
@@ -28,8 +30,8 @@ export default function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/products" element={<ProductsPage />} />
               <Route path="/product/:handle" element={<ProductDetail />} />
-              <Route path="/about" element={<PlaceholderPage title="About" />} />
-              <Route path="/faq" element={<PlaceholderPage title="FAQ" />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/faq" element={<FAQPage />} />
               <Route path="/contact" element={<PlaceholderPage title="Contact" />} />
               <Route path="/blog" element={<PlaceholderPage title="Blog" />} />
               <Route path="*" element={<PlaceholderPage title="404 — Page Not Found" />} />

@@ -122,7 +122,7 @@ export const PRODUCTS = [
     ingredients: ["Grass-fed tallow", "Rosemary oil", "Castor oil", "Argan oil", "Biotin"],
     benefits: ["Promotes hair growth", "Reduces frizz", "Adds shine", "Strengthens follicles"],
     rating: 4.6, reviews: 34,
-    image: "https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_05c4f9ac-5caf-4820-a0fe-a22b1b1e7fa3.png",
+    image: "https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_77a7760d-54db-40a3-a878-2d94a2c60fbb.jpg?v=1747893332",
   },
   {
     id: 10, name: "Hyaluronic Acid Serum", handle: "hydrabloom-botanical-serum",
