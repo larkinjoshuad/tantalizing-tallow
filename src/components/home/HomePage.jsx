@@ -42,52 +42,6 @@ export default function HomePage() {
           }}
         >
           <div style={{ maxWidth: 640 }}>
-            {/* TallowExpert CTA */}
-            <div
-              onClick={() => {
-                const btn = document.querySelector('[aria-label="Open TallowExpert chat"]');
-                if (btn) btn.click();
-              }}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 14,
-                background: `linear-gradient(135deg, ${C.gold}18, ${C.goldDark}12)`,
-                border: `1px solid ${C.gold}40`,
-                borderRadius: 16,
-                padding: "14px 22px",
-                marginBottom: 24,
-                cursor: "pointer",
-                transition: "all 0.3s",
-                maxWidth: 480,
-              }}
-            >
-              <div
-                style={{
-                  width: 48,
-                  height: 48,
-                  borderRadius: "50%",
-                  background: `linear-gradient(135deg, ${C.gold}, ${C.goldLight})`,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                  boxShadow: "0 4px 16px rgba(201,168,76,0.3)",
-                }}
-              >
-                <Sparkles size={22} color="#0a0a0a" />
-              </div>
-              <div style={{ flex: 1 }}>
-                <div style={{ color: C.gold, fontSize: 15, fontWeight: 700, marginBottom: 2 }}>
-                  Meet TallowExpert AI
-                </div>
-                <div style={{ color: C.textMuted, fontSize: 13, lineHeight: 1.4 }}>
-                  Your personal skincare advisor — get product recommendations tailored to your skin
-                </div>
-              </div>
-              <ChevronRight size={18} color={C.gold} style={{ flexShrink: 0 }} />
-            </div>
-
             <div
               style={{
                 display: "inline-flex",

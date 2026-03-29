@@ -53,7 +53,7 @@ export default function Header() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            height: 72,
+            height: 110,
           }}
         >
           {/* Logo */}
@@ -69,7 +69,7 @@ export default function Header() {
               src="/logo.jpg"
               alt="Tantalizing Tallow"
               style={{
-                height: 56,
+                height: 100,
                 width: "auto",
                 objectFit: "contain",
               }}
