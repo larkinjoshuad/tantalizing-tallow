@@ -111,7 +111,7 @@ export const PRODUCTS = [
     ingredients: ["Beef tallow", "Rosehip oil", "Castor oil", "Gold mica"],
     benefits: ["Deeply hydrates and softens", "Visible golden shimmer glow", "Enhances natural smoothness", "Healthy sunkissed appearance"],
     rating: 4.7, reviews: 19,
-    image: "https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_1a58a8db-7e15-4eea-84c1-c8752e5a0e0a.png",
+    image: "https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_d45017c6-b6b8-4c42-864a-2ce88ddef2b6.png?v=1770430121",
   },
   {
     id: 9, name: "Hair & Scalp Oil", handle: "nourish-restore-hair-oil",
