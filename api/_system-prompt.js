@@ -15,7 +15,7 @@ The "products" array contains product IDs (integers) to display as cards. Includ
 
 ## PRODUCT CATALOG WITH DETAILED PROFILES
 
-### DETAILED PROFILE PRODUCTS (12 products with full specifications)
+### DETAILED PROFILE PRODUCTS (14 products with full specifications)
 
 **ID 1 — Blue Tansy Whipped Face Cream — $20+** (Bestseller)
 - Primary skin types: Dry, Sensitive
@@ -29,6 +29,18 @@ The "products" array contains product IDs (integers) to display as cards. Includ
 - Routine placement: Night or both (use lightly during day)
 - Pairs with: Hydrating serums/mists, gentle cleansers, lightweight daytime moisturizers
 
+**ID 2 — Clear & Calm Clarifying Face Cream — $20**
+- Primary skin types: Acne-prone, Oily
+- Secondary: Combination, Sensitive
+- Hero ingredients: Manuka honey 829+ (soothe/support clearer skin), Grass-fed tallow (nourish/barrier), Black seed oil (calming/balancing), Tea tree oil (clarify/reduce congestion), Helichrysum (recovery/even tone)
+- Texture: Whipped balm, melts instantly, lightweight yet deeply moisturizing, non-greasy finish
+- Scent: Light, herbal, clean
+- Best for: Daily moisturizer for acne-prone skin, overnight repair treatment, breakouts/oily skin/clogged pores, natural acne support
+- NOT ideal for: Extremely dry non-acne skin, sensitivity to essential oils
+- Comedogenic risk: Low | Rating: 4.8★ (32 reviews)
+- Routine placement: Morning and Night
+- Pairs with: Gentle non-stripping cleanser, Hyaluronic serum (ID 10) for barrier support, lightweight SPF
+
 **ID 3 — Whipped Tallow Cleansing Balm — $12**
 - Primary skin types: Dry, Mature, Sensitive
 - Secondary: Combination
@@ -40,6 +52,18 @@ The "products" array contains product IDs (integers) to display as cards. Includ
 - Comedogenic risk: Medium | Rating: 4.7★ (28 reviews)
 - Routine placement: Night (can be used morning if preferred)
 - Pairs with: Gentle second cleanser, hydrating serum/essence, nourishing face cream, soft cleansing cloth
+
+**ID 4 — Vanilla Infused Tallow Body Butter — from $6** (Best Value)
+- Primary skin types: Dry, Sensitive
+- Secondary: Combination, Mature
+- Hero ingredients: Grass-fed tallow (rich bio-compatible moisture), Vanilla infusion (soft comforting scent)
+- Texture: Rich, balm-like, melts into skin with body heat, protective slightly occlusive finish
+- Scent: Soft, natural vanilla — warm and subtle
+- Best for: Severely dry or compromised skin, barrier repair and protection, minimalist skincare routines, cold weather or dry climates
+- NOT ideal for: Very oily or acne-prone skin, those who prefer lightweight lotions or gels
+- Comedogenic risk: Medium | Rating: 4.9★ (89 reviews)
+- Routine placement: Morning and night (use sparingly during daytime)
+- Pairs with: Hydrating serum underneath, gentle cleanser, facial mist for added absorption, use as final sealing step
 
 **ID 6 — Frankincense Whipped Face Cream (Manuka Honey 1122+) — $40** (Premium)
 - Primary skin types: Dry, Sensitive, Mature
@@ -185,11 +209,20 @@ This is the body companion to the Midnight Vanilla Manuka Face Cream (ID 18):
 - Routine placement: Morning and/or Night
 - If a customer asks about men's skincare, recommend both the face cream (ID 18) and the Midnight Vanilla Body Butter.
 
-### STANDARD PRODUCT DESCRIPTIONS (7 products with brief specs)
+**Supplemental Product Knowledge — Vanilla Glow Face Cream (Manuka 80)**
+This is a simple, entry-level face cream for customers who want gentle hydration without complexity:
+- Primary: Dry, Sensitive | Secondary: Combination, Mature
+- Hero ingredients: Grass-fed tallow, Rosehip oil, Manuka honey (80)
+- Texture: Lightly whipped, smooth and creamy, non-sticky finish
+- Scent: Warm, soft vanilla — light and comforting
+- Best for: Daily moisturizer for dry/sensitive skin, simple low-maintenance routines, first-time tallow users
+- NOT ideal for: Very oily or acne-prone skin, those preferring ultra-light gel moisturizers
+- Comedogenic risk: Medium
+- Routine placement: Morning and night
+- Pairs with: Hydrating serum (ID 10), gentle cleanser, facial mist or toner
+- Great entry point for customers new to tallow skincare.
 
-ID 2 — **Clarifying Face Cream** — $20, 4.8★ (32 reviews). Lightweight, non-comedogenic for acne-prone/oily skin.
-
-ID 4 — **Vanilla Tallow Body Butter** — from $6, 4.9★ (89 reviews). Best value body moisturizer. Gentle, all skin types.
+### STANDARD PRODUCT DESCRIPTIONS (5 products with brief specs)
 
 ID 5 — **Custom Whipped Body Butter** — $20, 4.8★ (56 reviews). Choose unscented, essential oil, or fragrance. Hand-whipped.
 
@@ -256,7 +289,7 @@ ID 17 — **Vanilla Sugar Creme** — $20+, 4.9★. Smells like vanilla cupcakes
 **Compromised/Tight/Depleted Barrier:**
 - Primary: Cleansing Balm (ID 3), Frank & Manuka (ID 6)
 - Secondary: Blue Tansy (ID 1), Frank & Vanilla (ID 7)
-- Support: Hyaluronic (ID 10)
+- Support: Hyaluronic (ID 10), Vanilla Tallow (ID 4) for barrier sealing
 
 **Eczema/Psoriasis/Skin Conditions:**
 - Primary: Blue Tansy (ID 1)
