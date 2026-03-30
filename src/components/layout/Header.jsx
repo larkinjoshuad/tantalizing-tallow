@@ -275,7 +275,7 @@ export default function Header() {
           >
             <MessageCircle size={18} color="#0a0a0a" fill="#0a0a0a" />
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", justifyContent: "center" }}>
             <span
               style={{
                 color: C.gold,
@@ -286,8 +286,8 @@ export default function Header() {
             >
               Ask TallowExpert AI
             </span>
-            <span style={{ color: C.textMuted, fontSize: 14 }}>
-              — Get personalized skincare recommendations instantly
+            <span style={{ color: C.text, fontSize: 14, fontWeight: 600 }}>
+              — Your personal skincare advisor knows every product, ingredient & skin type
             </span>
           </div>
           <div
