@@ -205,13 +205,13 @@ export const PRODUCTS = [
     image: "https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_e7f4990c-f46d-4616-993a-a8b2bd124122.jpg",
   },
   {
-    id: 17, name: "Vanilla Sugar Creme", handle: "body-butter-fragrance-of-the-month",
+    id: 17, name: "Fragrance of the Month", handle: "body-butter-fragrance-of-the-month",
     price: 20, priceFrom: true,
     category: "body", skinType: ["all", "dry"],
-    shortDesc: "Sweet, indulgent tallow body cream",
-    description: "Dessert for your skin. A rich, whipped body cream that smells like vanilla cupcakes and leaves your skin impossibly soft. The guilt-free indulgence your skin routine has been missing.",
-    ingredients: ["Grass-fed tallow", "Vanilla extract", "Raw sugar extract", "Shea butter", "Cocoa butter"],
-    benefits: ["Incredibly soft skin", "Intoxicating scent", "Rich hydration", "Mood-boosting"],
+    shortDesc: "Rotating monthly scent — limited edition body butter",
+    description: "A rich, whipped tallow body butter featuring a new, limited-edition fragrance each month. This month's scent rotates regularly — grab it before it's gone! Same premium grass-fed tallow base, always a new sensory experience.",
+    ingredients: ["Grass-fed tallow", "Rotating monthly fragrance blend"],
+    benefits: ["Limited edition scent experience", "Rich deep hydration", "Collectible monthly rotation", "Same premium tallow base"],
     rating: 4.9, reviews: 58,
     image: "https://tantalizingtallow.com/cdn/shop/files/preview_images/a19dae3a897e45e89eccbd290fc71cd3.thumbnail.0000000000.jpg",
   },
@@ -258,7 +258,7 @@ export const PLACEHOLDER_IMAGES = {
   "orange-blossom-turmeric": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&h=600&fit=crop",
   "sun-veil": "https://images.unsplash.com/photo-1532947974-2e3969737c32?w=600&h=600&fit=crop",
   "coffee-sugar-scrub": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600&h=600&fit=crop",
-  "vanilla-sugar-creme": "https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?w=600&h=600&fit=crop",
+  "fragrance-of-the-month": "https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?w=600&h=600&fit=crop",
   "rugged-revival": "https://images.unsplash.com/photo-1581182800629-7d90925ad072?w=600&h=600&fit=crop",
 };
 

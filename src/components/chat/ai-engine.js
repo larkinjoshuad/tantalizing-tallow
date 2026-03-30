@@ -28,7 +28,7 @@ const RESPONSES = {
 
   // ── Combo Intent (NEW v3) ──
   comboIntent: {
-    text: "For combination concerns, tallow is actually ideal — it's bioidentical to your skin's sebum so it balances rather than overloads. Here's what I'd suggest:\n\n**Start with:** Cleansing Balm + Hyaluronic Acid Serum (universal base)\n**Face:** Blue Tansy (calms everything — acne, sensitivity, redness)\n**Body:** Vanilla Sugar Creme (gentle, all-skin-types)\n**Night:** Magnesium Sleep Balm (helps skin repair overnight)\n\nTallow adapts to what your skin needs — most customers with combo concerns see improvement in 1-2 weeks.",
+    text: "For combination concerns, tallow is actually ideal — it's bioidentical to your skin's sebum so it balances rather than overloads. Here's what I'd suggest:\n\n**Start with:** Cleansing Balm + Hyaluronic Acid Serum (universal base)\n**Face:** Blue Tansy (calms everything — acne, sensitivity, redness)\n**Body:** Fragrance of the Month body butter (gentle, all-skin-types)\n**Night:** Magnesium Sleep Balm (helps skin repair overnight)\n\nTallow adapts to what your skin needs — most customers with combo concerns see improvement in 1-2 weeks.",
     products: [3, 10, 1, 17, 11],
   },
 
@@ -98,8 +98,8 @@ const RESPONSES = {
       text: "**Vanilla Espresso Coffee Sugar Scrub** — coffee grounds exfoliate while caffeine boosts circulation. Turns your shower into a spa. $12, 4.8★.",
       products: [16],
     },
-    vanillaSugarCreme: {
-      text: "**Vanilla Sugar Creme** — dessert for your skin! Smells like vanilla cupcakes, leaves skin impossibly soft. Rich hydration with a mood-boosting scent. $20, 4.9★.",
+    fragranceOfMonth: {
+      text: "Our **Fragrance of the Month** body butter features a new limited-edition scent each month! Same premium grass-fed tallow base, always a new sensory experience. From $20, 4.9★. Grab it before it rotates!",
       products: [17],
     },
     ruggedRevival: {
@@ -115,7 +115,7 @@ const RESPONSES = {
       products: [1, 2],
     },
     dry: {
-      text: "Dry skin loves tallow because it's the closest thing to our skin's natural sebum. I'd recommend our **Vanilla Sugar Creme** for body and the **Frankincense & Vanilla Face Cream** for your face — frankincense stimulates collagen while deeply nourishing. For extreme dryness, the **Luxe Face Cream** is unmatched.",
+      text: "Dry skin loves tallow because it's the closest thing to our skin's natural sebum. I'd recommend our **Fragrance of the Month** body butter or **Vanilla Tallow Body Butter** for body and the **Frankincense & Vanilla Face Cream** for your face — frankincense stimulates collagen while deeply nourishing. For extreme dryness, the **Luxe Face Cream** is unmatched.",
       products: [17, 7, 12],
     },
     sensitive: {
@@ -265,7 +265,7 @@ const INTENT_MAP = [
   { pattern: /shimmer|summer shimmer|frosted mint|glitter|sunkissed|sun kissed/i, key: "products.shimmer" },
   { pattern: /custom|my own scent|choose.*scent/i, key: "products.customButter" },
   { pattern: /coffee.*(scrub|sugar)|sugar.*(scrub|coffee)|exfoliat/i, key: "products.coffeeScrub" },
-  { pattern: /vanilla sugar|sugar creme/i, key: "products.vanillaSugarCreme" },
+  { pattern: /vanilla sugar|sugar creme|fragrance of the month|monthly scent|limited edition/i, key: "products.fragranceOfMonth" },
   { pattern: /rugged|revival/i, key: "products.ruggedRevival" },
   { pattern: /sleep balm|magnesium balm/i, key: "products.sleepBalm" },
   { pattern: /hyaluronic|\bserum\b(?!.*before|\bafter\b)/i, key: "products.hyaluronic" },

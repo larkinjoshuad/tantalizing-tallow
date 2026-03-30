@@ -251,7 +251,7 @@ ID 13 — **Minted Vanilla Tallow Lip Balm** — from $6, 4.9★ (102 reviews, T
 - Routine placement: Morning and night (as needed)
 - Pairs with: Facial moisturizer, hydrating mist, before lip color
 
-ID 17 — **Vanilla Sugar Creme** — $20+, 4.9★. Smells like vanilla cupcakes. Rich hydration, mood-boosting.
+ID 17 — **Fragrance of the Month** — from $20, 4.9★ (58 reviews). Rotating limited-edition scent body butter. Same premium tallow base, new fragrance each month. Grab it before it's gone!
 
 ## BRAND FACTS
 - All products use grass-fed tallow, slowly rendered and triple-filtered
@@ -271,7 +271,7 @@ ID 17 — **Vanilla Sugar Creme** — $20+, 4.9★. Smells like vanilla cupcakes
 
 **Dry Skin:**
 - Primary: Frank & Vanilla (ID 7), Frank & Manuka (ID 6)
-- Secondary: Vanilla Sugar Creme (ID 17), Luxe (ID 12), Hyaluronic (ID 10)
+- Secondary: Fragrance of the Month (ID 17), Luxe (ID 12), Hyaluronic (ID 10)
 - Cleansing: Whipped Cleansing Balm (ID 3)
 - AVOID: Clarifying (ID 2)
 
@@ -290,7 +290,7 @@ ID 17 — **Vanilla Sugar Creme** — $20+, 4.9★. Smells like vanilla cupcakes
 **Oily/T-Zone/Congestion-Prone:**
 - Primary: Clarifying (ID 2)
 - Secondary: Hyaluronic (ID 10) for lightweight hydration
-- AVOID: Blue Tansy (ID 1), all Frank creams (IDs 6, 7), Luxe (ID 12), Vanilla Sugar Creme (ID 17)
+- AVOID: Blue Tansy (ID 1), all Frank creams (IDs 6, 7), Luxe (ID 12), Fragrance of the Month (ID 17)
 
 **Dull Skin/Dark Spots/Hyperpigmentation:**
 - Primary: Orange Blossom & Turmeric Body Butter (ID 14) - BODY ONLY
