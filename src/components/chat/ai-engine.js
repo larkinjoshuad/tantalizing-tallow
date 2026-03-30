@@ -147,6 +147,33 @@ const RESPONSES = {
     text: "I'd love to build you a personalized routine! To get it right, I need a few details:\n\n1. **What's your skin type?** (oily, dry, combo, sensitive, or not sure)\n2. **Top skin concern?** (acne, aging, dryness, hyperpigmentation, redness, or general glow)\n3. **How many steps do you prefer?** (simple 2-3 steps, or full AM/PM routine)\n\nJust answer those and I'll put together something tailored to you!",
     products: [],
   },
+  // ── Full Routines by Skin Type ──
+  routines: {
+    sensitive: {
+      text: "Here's your **full sensitive skin routine** — gentle, calming, zero irritants:\n\n☀️ **AM Routine:**\n1. **Cleansing Balm** ($12) — gentle cleanse without stripping\n2. **Hyaluronic Acid Serum** ($12) — lightweight hydration layer\n3. **Blue Tansy Face Cream** (from $20) — calms redness & inflammation\n4. **Sun Veil** ($15) — mineral SPF, no chemical filters\n\n🌙 **PM Routine:**\n1. **Cleansing Balm** — double-cleanse to remove sunscreen\n2. **Hyaluronic Acid Serum** — overnight hydration boost\n3. **Blue Tansy Face Cream** — repair while you sleep\n4. **Magnesium Sleep Balm** (from $18) — apply to wrists/temples for deep relaxation\n\n**Weekly:** Coffee Sugar Scrub ($12) on body only (skip face)\n\nTotal routine: ~$77 (qualifies for free shipping!)",
+      products: [3, 10, 1, 15, 11, 16],
+    },
+    dry: {
+      text: "Here's your **full dry skin routine** — maximum hydration and barrier repair:\n\n☀️ **AM Routine:**\n1. **Cleansing Balm** ($12) — melts away buildup without stripping moisture\n2. **Hyaluronic Acid Serum** ($12) — pulls moisture deep into skin\n3. **Frankincense & Vanilla Face Cream** ($22) — rich daily nourishment\n4. **Sun Veil** ($15) — protective moisture layer with zinc\n\n🌙 **PM Routine:**\n1. **Cleansing Balm** — gentle double-cleanse\n2. **Hyaluronic Acid Serum** — overnight hydration\n3. **Frankincense & Manuka Honey Face Cream** ($40) — deep repair with 1122+ Manuka\n4. **Vanilla Tallow Body Butter** (from $6) — full body barrier seal\n\n**Weekly:** Coffee Sugar Scrub ($12) to slough dead skin\n**Lips:** Minted Vanilla Lip Balm (from $6)\n\nTotal routine: ~$125 (free shipping included!)",
+      products: [3, 10, 7, 15, 6, 4, 16, 13],
+    },
+    acne: {
+      text: "Here's your **full acne-prone skin routine** — clear skin without stripping:\n\n☀️ **AM Routine:**\n1. **Cleansing Balm** ($12) — removes excess oil gently\n2. **Hyaluronic Acid Serum** ($12) — lightweight hydration (won't clog pores)\n3. **Clarifying Face Cream** ($20) — tea tree + Manuka 829+ to calm breakouts\n4. **Sun Veil** ($15) — mineral SPF, non-comedogenic\n\n🌙 **PM Routine:**\n1. **Cleansing Balm** — double-cleanse to clear pores\n2. **Hyaluronic Acid Serum** — repair hydration\n3. **Blue Tansy Face Cream** (from $20) — anti-inflammatory overnight recovery\n\n**Weekly:** Coffee Sugar Scrub ($12) on body, gentle on face\n\nTotal routine: ~$91 (free shipping!)",
+      products: [3, 10, 2, 15, 1, 16],
+    },
+    aging: {
+      text: "Here's your **full anti-aging routine** — collagen support and radiance:\n\n☀️ **AM Routine:**\n1. **Cleansing Balm** ($12) — preserve moisture barrier while cleansing\n2. **Hyaluronic Acid Serum** ($12) — plumps fine lines with deep hydration\n3. **Frankincense & Vanilla Face Cream** ($22) — collagen stimulation + daily nourishment\n4. **Sun Veil** ($15) — UV protection is #1 anti-aging step\n\n🌙 **PM Routine:**\n1. **Cleansing Balm** — gentle double-cleanse\n2. **Hyaluronic Acid Serum** — overnight plumping\n3. **Luxe Face Cream** ($60) — bakuchiol (natural retinol alternative) + 24K gold\n4. **Magnesium Sleep Balm** (from $18) — relaxation + skin repair\n\n**Weekly:** Coffee Sugar Scrub ($12) for cell turnover\n**Lips:** Minted Vanilla Lip Balm (from $6)\n\nTotal routine: ~$157 (free shipping!)",
+      products: [3, 10, 7, 15, 12, 11, 16, 13],
+    },
+    oily: {
+      text: "Here's your **full oily skin routine** — balance sebum without stripping:\n\n☀️ **AM Routine:**\n1. **Cleansing Balm** ($12) — oil-cleansing method actually reduces oiliness\n2. **Hyaluronic Acid Serum** ($12) — lightweight hydration your skin craves\n3. **Clarifying Face Cream** ($20) — balances sebum production naturally\n4. **Sun Veil** ($15) — mineral SPF, no greasy residue\n\n🌙 **PM Routine:**\n1. **Cleansing Balm** — deep cleanse without disrupting oil balance\n2. **Hyaluronic Acid Serum** — overnight hydration\n3. **Blue Tansy Face Cream** (from $20) — calms any inflammation\n\n**Weekly:** Coffee Sugar Scrub ($12) to keep pores clear\n\nTotal routine: ~$91 (free shipping!)",
+      products: [3, 10, 2, 15, 1, 16],
+    },
+    general: {
+      text: "Here's your **full glow routine** — the ultimate Tantalizing Tallow experience:\n\n☀️ **AM Routine:**\n1. **Cleansing Balm** ($12) — fresh, clean canvas\n2. **Hyaluronic Acid Serum** ($12) — base hydration layer\n3. **Orange Blossom & Turmeric Face Cream** ($20) — brightening + glow\n4. **Sun Veil** ($15) — daily protection\n\n🌙 **PM Routine:**\n1. **Cleansing Balm** — double-cleanse\n2. **Hyaluronic Acid Serum** — overnight hydration\n3. **Frankincense & Vanilla Face Cream** ($22) — deep nourishment\n4. **Magnesium Sleep Balm** (from $18) — relaxation ritual\n\n**Body:** Summer Shimmer Body Butter ($24) for events, Vanilla Tallow (from $6) for daily\n**Weekly:** Coffee Sugar Scrub ($12)\n**Lips:** Minted Vanilla Lip Balm (from $6)\n\nTotal routine: ~$147 (free shipping!)",
+      products: [3, 10, 14, 15, 7, 11, 8, 4, 16, 13],
+    },
+  },
 
   // ── How To Use (NEW) ──
   howToUse: {
@@ -273,6 +300,20 @@ const INTENT_MAP = [
   { pattern: /hair oil|scalp oil/i, key: "products.hairOil" },
   { pattern: /\blip balm\b|minted vanilla/i, key: "products.lipBalm" },
   { pattern: /body butter|vanilla.*butter/i, key: "products.vanillaBodyButter" },
+
+  // ── Full Routine Builders (BEFORE single skin concerns — catches "sensitive, full routine") ──
+  { pattern: /\bsensitive\b.*\b(routine|regimen|full|AM|PM|step)/i, key: "routines.sensitive" },
+  { pattern: /\b(routine|regimen|full|AM|PM|step).*\bsensitive\b/i, key: "routines.sensitive" },
+  { pattern: /\b(dry|dryness|dehydrat)\b.*\b(routine|regimen|full|AM|PM|step)/i, key: "routines.dry" },
+  { pattern: /\b(routine|regimen|full|AM|PM|step).*\b(dry|dryness)\b/i, key: "routines.dry" },
+  { pattern: /\b(acne|breakout|blemish)\b.*\b(routine|regimen|full|AM|PM|step)/i, key: "routines.acne" },
+  { pattern: /\b(routine|regimen|full|AM|PM|step).*\b(acne|breakout|blemish)\b/i, key: "routines.acne" },
+  { pattern: /\b(aging|mature|wrinkle|anti.?age|fine line)\b.*\b(routine|regimen|full|AM|PM|step)/i, key: "routines.aging" },
+  { pattern: /\b(routine|regimen|full|AM|PM|step).*\b(aging|mature|wrinkle|anti.?age)\b/i, key: "routines.aging" },
+  { pattern: /\b(oily|oil control|sebum)\b.*\b(routine|regimen|full|AM|PM|step)/i, key: "routines.oily" },
+  { pattern: /\b(routine|regimen|full|AM|PM|step).*\b(oily|oil control)\b/i, key: "routines.oily" },
+  { pattern: /\b(glow|bright|radian)\b.*\b(routine|regimen|full|AM|PM|step)/i, key: "routines.general" },
+  { pattern: /\b(routine|regimen|full|AM|PM|step).*\b(glow|bright)\b/i, key: "routines.general" },
 
   // Skin concerns (v3 — expanded keywords, negative lookaheads)
   { pattern: /\bacne\b|breakout|pimple|blemish|comedogenic|\bclog/, key: "skinTypes.acne" },
