@@ -273,12 +273,12 @@ const RESPONSES = {
 const INTENT_MAP = [
   // ── GUARDRAILS (highest priority — intercept before anything else) ──
   // Recipe/DIY — block recipe sharing, homemade instructions, formulation requests
-  { pattern: /\brecipe\b|homemade|\bDIY\b|make.*(my own|your own|at home|from scratch)|how.*make.*tallow|how.*render|formul(a|ation)|ingredient.*list.*mak(e|ing)|whip.*my own|batch.*my own/, key: "recipeDiy" },
+  { pattern: /\brecipe\b|homemade|\bdiy\b|make.*(my own|your own|at home|from scratch)|how.*make.*tallow|how.*render|\brender.*my own\b|\brender.*tallow\b|formul(a|ation)|ingredient.*list.*mak(e|ing)|whip.*my own|batch.*my own/, key: "recipeDiy" },
   // Other brands/competitors — redirect without engaging on competitor products
-  { pattern: /\bCeraVe\b|\bDrunk Elephant\b|\bVintage Tradition\b|\bFATCO\b|\bAquaphor\b|\bNourishing Biologicals\b|\bBeekman\b|\bPrimally Pure\b|\bBuffalo Gal\b|\bVintage\s+Tradition\b|\bretinol\b|\btretinoin\b|\baccutane\b|\bother brand/i, key: "otherBrand" },
+  { pattern: /\bCeraVe\b|\bDrunk Elephant\b|\bVintage Tradition\b|\bFATCO\b|\bAquaphor\b|\bNourishing Biologicals\b|\bBeekman\b|\bPrimally Pure\b|\bBuffalo Gal\b|\bVintage\s+Tradition\b|\bretinol\b|\btretinoin\b|\baccutane\b/i, key: "otherBrand" },
 
   // Combo intents (catches "X AND Y" before single-concern patterns)
-  { pattern: /\b(dry|acne|oily|sensitive|aging|mature)\b.+\b(and|but|plus|also)\b.+\b(dry|acne|oily|sensitive|aging|wrinkle|breakout|flaky)\b/, key: "comboIntent" },
+  { pattern: /\b(dry|acne|oily|sensitive|aging|mature)\b.+\b(and|but|plus|also)\b.+\b(dry|dryness|acne|oily|sensitive|aging|wrinkle|breakout|flaky)\b/, key: "comboIntent" },
   { pattern: /combination skin/, key: "comboIntent" },
 
   // Specific product mentions (highest priority)
@@ -290,7 +290,7 @@ const INTENT_MAP = [
   { pattern: /frankincense.*(vanilla|face)/i, key: "products.frankVanilla" },
   { pattern: /turmeric|orange blossom/i, key: "products.turmeric" },
   { pattern: /shimmer|summer shimmer|frosted mint|glitter|sunkissed|sun kissed/i, key: "products.shimmer" },
-  { pattern: /custom|my own scent|choose.*scent/i, key: "products.customButter" },
+  { pattern: /custom(?!er)|my own scent|choose.*scent/i, key: "products.customButter" },
   { pattern: /coffee.*(scrub|sugar)|sugar.*(scrub|coffee)|exfoliat/i, key: "products.coffeeScrub" },
   { pattern: /vanilla sugar|sugar creme|fragrance of the month|monthly scent|limited edition/i, key: "products.fragranceOfMonth" },
   { pattern: /rugged|revival/i, key: "products.ruggedRevival" },
@@ -308,35 +308,41 @@ const INTENT_MAP = [
   { pattern: /\b(routine|regimen|full|AM|PM|step).*\b(dry|dryness)\b/i, key: "routines.dry" },
   { pattern: /\b(acne|breakout|blemish)\b.*\b(routine|regimen|full|AM|PM|step)/i, key: "routines.acne" },
   { pattern: /\b(routine|regimen|full|AM|PM|step).*\b(acne|breakout|blemish)\b/i, key: "routines.acne" },
+  { pattern: /\b(routine|regimen|full|AM|PM|step)\b.*\bfor\b.*\b(acne|breakout|blemish)/i, key: "routines.acne" },
   { pattern: /\b(aging|mature|wrinkle|anti.?age|fine line)\b.*\b(routine|regimen|full|AM|PM|step)/i, key: "routines.aging" },
   { pattern: /\b(routine|regimen|full|AM|PM|step).*\b(aging|mature|wrinkle|anti.?age)\b/i, key: "routines.aging" },
+  { pattern: /\b(routine|regimen|full|AM|PM|step)\b.*\bfor\b.*\b(aging|wrinkle|anti.?age|fine line)/i, key: "routines.aging" },
   { pattern: /\b(oily|oil control|sebum)\b.*\b(routine|regimen|full|AM|PM|step)/i, key: "routines.oily" },
   { pattern: /\b(routine|regimen|full|AM|PM|step).*\b(oily|oil control)\b/i, key: "routines.oily" },
-  { pattern: /\b(glow|bright|radian)\b.*\b(routine|regimen|full|AM|PM|step)/i, key: "routines.general" },
-  { pattern: /\b(routine|regimen|full|AM|PM|step).*\b(glow|bright)\b/i, key: "routines.general" },
+  { pattern: /\b(glow|bright|radian).*\b(routine|regimen|full|AM|PM|step)/i, key: "routines.general" },
+  { pattern: /\b(routine|regimen|full|AM|PM|step).*\b(glow|bright|radian)/i, key: "routines.general" },
+  { pattern: /\b(routine|regimen|full|AM|PM|step)\b.*\bfor\b.*\b(glow|bright|radian)/i, key: "routines.general" },
 
   // Skin concerns (v3 — expanded keywords, negative lookaheads)
   { pattern: /\bacne\b|breakout|pimple|blemish|comedogenic|\bclog/, key: "skinTypes.acne" },
-  { pattern: /\bdry\b(?!.*\bwet\b)|\bflak|tight(?:ness)?|dehydrat|cracked|peeling|dryness|moisturiz/, key: "skinTypes.dry" },
+  { pattern: /(?<!wet.{1,5})\bdry\b(?!.*\bwet\b)(?!.*(?:frizz|hair|scalp))|\bflak|tight(?:ness)?|dehydrat|cracked|peeling|dryness(?!.*(?:frizz|hair))|moisturiz/, key: "skinTypes.dry" },
   { pattern: /\bsensitive\b|\breact(?:ive)?\b|\bredness\b|\bred\b(?!uc)|rosacea|irritat|burning/, key: "skinTypes.sensitive" },
-  { pattern: /aging|wrinkle|anti.?age|\bmature\b|collagen|fine line|crow.?s feet|laugh line|sagging|younger|50\+/, key: "skinTypes.aging" },
+  { pattern: /aging|wrinkle|anti.?age|\bmature\b|collagen|fine line|crow.?s feet|laugh line|sagging|younger|\b50\b|\b60\b|\b70\b/, key: "skinTypes.aging" },
   { pattern: /\boily\b|\bshiny\b|oil control|sebum|greasy|t.?zone/, key: "skinTypes.oily" },
   { pattern: /\bdull\b|dark spot|bright|glow|hyperpigment|uneven.*tone|dark circle|dark mark|melasma|radian/, key: "skinTypes.dull" },
 
   // Skin conditions (NEW)
   { pattern: /eczema|psoriasis|keratosis|dermatitis|\brash\b|stretch mark|\bscar\b|wound|\bburn\b|tattoo aftercare|diaper rash|cradle cap|cellulite|insect bite|hives/, key: "skinConditions" },
 
-  // Routines
-  { pattern: /\broutine\b|\bregimen\b|\bmorning\b(?!.*ship)|skincare.*order|layer.*product|what.*use.*daily|what.*first|AM.*PM|beginner/, key: "routine" },
+  // Sleep+routine combo (before generic routine — exclude "morning and night")
+  { pattern: /bedtime.*routine|sleep.*routine|routine.*sleep|routine.*bedtime|(?<!morning.*)night.*routine|before bed.*routine/, key: "sleep" },
 
-  // How to use (NEW)
-  { pattern: /how (much|often|long)|appl(y|ication)|refrigerat|shelf life|expir|patch test|\bstore\b|melt|under makeup|wet or dry|wash.*off|overuse|mix.*product|multiple product|use on.*body/, key: "howToUse" },
+  // Routines
+  { pattern: /\broutine\b|\bregimen\b|\bmorning\b(?!.*ship)|skincare.*order|layer.*product|what.*use.*daily|what.*(?<!try )first|AM.*PM|beginner/, key: "routine" },
+
+  // How to use (NEW) — negative lookahead prevents "how long for delivery" matching here
+  { pattern: /how (much|often)|how long(?!.*(deliver|ship|arriv|order))|\bapply\b|application|refrigerat|shelf life|expir|patch test|(?<!physical )\bstore\b|melt|under makeup|wet or dry|wash.*off|overuse|mix.*product|multiple product|use on.*body/, key: "howToUse" },
 
   // Complaints & support (NEW v3)
-  { pattern: /complaint|bad reaction|didn.?t work|not happy|didn.?t like|had a reaction|texture.*weird|smells? different|damaged.*arrived|wrong product/, key: "complaint" },
+  { pattern: /complaint|bad reaction|didn.?t work|not happy|didn.?t like|had a reaction|texture.*weird|smells? different|\bdamaged\b|wrong product/, key: "complaint" },
 
   // Comparisons (BEFORE tallow — catches "tallow vs X" before bare "tallow")
-  { pattern: /\bvs\b|compar|versus|better than|differ(?:ent|ence)|how do you/, key: "comparison" },
+  { pattern: /\bvs\b|compar|versus|better than|differ(?:ent|ence)|how do you|other brand/, key: "comparison" },
 
   // Education (expanded v3)
   { pattern: /\btallow\b|what is tallow|why tallow|grass.?fed|ancestral skin|beef fat|animal fat|rendered fat|fatty acid/, key: "tallow" },
@@ -348,7 +354,7 @@ const INTENT_MAP = [
   { pattern: /\bship|deliver|\border\b(?!.*skin)/, key: "shipping" },
 
   // Men's (word-boundary fixed)
-  { pattern: /\bmen(?:'s)?\b|\bguys?\b|\bshav(?:e|ing)\b|razor|beard|masculine/, key: "mens" },
+  { pattern: /\bmen(?:'s)?\b|\bguys?\b|\bshav(?:e|ing)\b|razor|beard|masculine|boyfriend|husband/, key: "mens" },
 
   // Lips (word-boundary fixed)
   { pattern: /\blip\b|\blips\b|\bchap/, key: "lips" },
@@ -357,13 +363,13 @@ const INTENT_MAP = [
   { pattern: /\bhair\b|\bscalp\b|frizz|dandruff/, key: "hair" },
 
   // Sleep (v3 — expanded)
-  { pattern: /\bsleep\b|\brelax\b|\bmagnesium\b|insomnia|bedtime|wind down|can.?t sleep|restless/, key: "sleep" },
+  { pattern: /\bsleep\b|\brelax|\bmagnesium\b|insomnia|bedtime|\bbed\b|wind down|can.?t sleep|restless/, key: "sleep" },
 
   // Sun (v3 — expanded)
   { pattern: /\bsun\b|\bspf\b|sunscreen|zinc oxide|mineral.*protect|white cast|sunburn/, key: "sun" },
 
   // Gifts / popular (v3 — expanded)
-  { pattern: /\bgift\b|\bbest seller\b|\bpopular\b|\bfavorite\b|top rated|what.*try first|what do you sell|what products|starter/, key: "popular" },
+  { pattern: /\bgift\b|\bbest seller\b|\bbest sellers\b|\bbestseller\b|\bpopular\b|\bfavorite\b|top rated|what.*try first|what do you sell|what products|starter/, key: "popular" },
 
   // Budget
   { pattern: /cheap|budget|\bvalue\b|affordable|under \$|save money|student/, key: "budget" },
@@ -376,8 +382,9 @@ const INTENT_MAP = [
 
   // Greeting (LAST — standalone greetings + common follow-ups like "hi there", "hey!")
   { pattern: /^\s*(hello|hi|hey|hiya|howdy)\s*[!.,]*\s*$/i, key: "greeting" },
-  { pattern: /\b(hello|hi|hey)\s*[,!]\s*(i need|i'm new|first time|love your|there)/i, key: "greeting" },
+  { pattern: /\b(hello|hi|hey)\s*[,!]?\s*(i need|i'm new|first time|love your|there)\b/i, key: "greeting" },
   { pattern: /^(hello|hi|hey|hiya|howdy)[!. ]*$/i, key: "greeting" },
+  { pattern: /^hey!\s/i, key: "greeting" },
 ];
 
 function resolve(key) {
