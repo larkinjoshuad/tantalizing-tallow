@@ -184,6 +184,86 @@ function transformProduct(node) {
   };
 }
 
+// ─── Variant ID Resolver ───
+// Fetches all products once and builds handle → first available variantId map.
+// Called at app startup so static PRODUCTS gain Shopify variant IDs for cart sync.
+let _variantMap = null;
+let _variantPromise = null;
+
+export function loadVariantMap() {
+  if (_variantMap) return Promise.resolve(_variantMap);
+  if (_variantPromise) return _variantPromise;
+
+  _variantPromise = shopifyFetch(`
+    query {
+      products(first: 50, sortKey: BEST_SELLING) {
+        edges { node {
+          handle
+          variants(first: 10) { edges { node {
+            id availableForSale
+            price { amount }
+          } } }
+        } }
+      }
+    }
+  `).then((data) => {
+    _variantMap = {};
+    if (data?.products?.edges) {
+      for (const { node } of data.products.edges) {
+        // Map handle → array of { id, price, available }
+        const variants = node.variants.edges.map(({ node: v }) => ({
+          id: v.id,
+          price: parseFloat(v.price.amount),
+          available: v.availableForSale,
+        }));
+        _variantMap[node.handle] = variants;
+      }
+    }
+    console.log(`[Shopify] Loaded variant map for ${Object.keys(_variantMap).length} products`);
+    return _variantMap;
+  }).catch((err) => {
+    console.warn("[Shopify] Failed to load variant map:", err.message);
+    _variantMap = {};
+    return _variantMap;
+  });
+
+  return _variantPromise;
+}
+
+/**
+ * Get the first available Shopify variant ID for a product handle + price.
+ * Falls back to first variant if no exact price match.
+ */
+export function getVariantId(handle, price) {
+  if (!_variantMap || !_variantMap[handle]) return null;
+  const variants = _variantMap[handle];
+  // Try to find variant matching this price (for multi-variant products)
+  const match = variants.find((v) => v.available && v.price === price)
+    || variants.find((v) => v.available)
+    || variants[0];
+  return match?.id || null;
+}
+
+/**
+ * Build a Shopify /cart permalink from items array.
+ * Format: /cart/NUMERIC_VARIANT_ID:QTY,NUMERIC_VARIANT_ID:QTY
+ * This works even without API cart creation.
+ */
+export function buildShopifyCartUrl(items) {
+  const pairs = [];
+  for (const item of items) {
+    const vid = item.variantId || getVariantId(item.handle, item.price);
+    if (vid) {
+      // Shopify variant IDs are like "gid://shopify/ProductVariant/12345"
+      // The /cart/ permalink needs just the numeric ID
+      const numericId = vid.split("/").pop();
+      pairs.push(`${numericId}:${item.qty}`);
+    }
+  }
+  if (pairs.length === 0) return null;
+  return `https://${SHOPIFY_DOMAIN}/cart/${pairs.join(",")}`;
+}
+
 // ─── Analytics ───
 export function trackEvent(name, data = {}) {
   if (window.gtag) window.gtag("event", name, data);

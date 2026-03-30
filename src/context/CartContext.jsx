@@ -1,5 +1,7 @@
 import { createContext, useContext, useState, useCallback } from "react";
-import { createCart, addCartLines, updateCartLines, removeCartLines } from "../lib/shopify";
+import {
+  createCart, addCartLines, getVariantId, buildShopifyCartUrl,
+} from "../lib/shopify";
 
 const CartContext = createContext(null);
 
@@ -8,6 +10,7 @@ export function CartProvider({ children }) {
   const [shopifyCart, setShopifyCart] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [flash, setFlash] = useState(false);
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
 
   const triggerFlash = () => {
     setFlash(true);
@@ -15,6 +18,9 @@ export function CartProvider({ children }) {
   };
 
   const addItem = useCallback((product, qty = 1) => {
+    // Resolve variantId from Shopify map if not already on the product
+    const variantId = product.variantId || getVariantId(product.handle, product.price);
+
     setItems((prev) => {
       const idx = prev.findIndex((i) => i.id === product.id);
       if (idx >= 0) {
@@ -22,18 +28,18 @@ export function CartProvider({ children }) {
         updated[idx] = { ...updated[idx], qty: updated[idx].qty + qty };
         return updated;
       }
-      return [...prev, { ...product, qty }];
+      return [...prev, { ...product, qty, variantId }];
     });
     triggerFlash();
 
-    // Async Shopify sync (fire and forget for now)
-    if (product.variantId) {
+    // Async Shopify cart sync
+    if (variantId) {
       (async () => {
         try {
           let cart = shopifyCart;
           if (!cart) cart = await createCart();
           if (cart) {
-            const updated = await addCartLines(cart.id, product.variantId, qty);
+            const updated = await addCartLines(cart.id, variantId, qty);
             setShopifyCart(updated);
           }
         } catch (err) {
@@ -57,14 +63,53 @@ export function CartProvider({ children }) {
     setItems((prev) => prev.filter((_, i) => i !== index));
   }, []);
 
-  const checkout = useCallback(() => {
+  /**
+   * Checkout flow — 3-tier strategy:
+   * 1. Use Shopify API checkoutUrl (if cart was synced during addItem)
+   * 2. Build checkout on-the-fly from items (if sync failed but we have variant IDs)
+   * 3. Build Shopify /cart/ permalink (always works if variant IDs are available)
+   */
+  const checkout = useCallback(async () => {
+    // Tier 1: API checkout URL already available
     if (shopifyCart?.checkoutUrl) {
       window.location.href = shopifyCart.checkoutUrl;
-    } else {
-      // Fallback: redirect to Shopify store
-      window.open("https://tantalizingtallow.com/cart", "_blank");
+      return;
     }
-  }, [shopifyCart]);
+
+    setCheckoutLoading(true);
+
+    // Tier 2: Try creating a Shopify cart with all items right now
+    try {
+      const lines = items
+        .map((item) => {
+          const vid = item.variantId || getVariantId(item.handle, item.price);
+          return vid ? { merchandiseId: vid, quantity: item.qty } : null;
+        })
+        .filter(Boolean);
+
+      if (lines.length > 0) {
+        const cart = await createCart(lines);
+        if (cart?.checkoutUrl) {
+          setShopifyCart(cart);
+          window.location.href = cart.checkoutUrl;
+          return;
+        }
+      }
+    } catch (err) {
+      console.warn("[Cart] On-demand checkout creation failed:", err.message);
+    }
+
+    // Tier 3: Build Shopify /cart/ permalink (works without API)
+    const permalink = buildShopifyCartUrl(items);
+    if (permalink) {
+      window.location.href = permalink;
+    } else {
+      // Last resort — shouldn't happen, but handle gracefully
+      window.open("https://tantalizingtallow.myshopify.com/cart", "_blank");
+    }
+
+    setCheckoutLoading(false);
+  }, [shopifyCart, items]);
 
   const totalQty = items.reduce((s, i) => s + i.qty, 0);
   const subtotal = items.reduce((s, i) => s + i.price * i.qty, 0);
@@ -73,7 +118,7 @@ export function CartProvider({ children }) {
     <CartContext.Provider
       value={{
         items, addItem, updateQty, removeItem, checkout,
-        isOpen, setIsOpen, flash, totalQty, subtotal,
+        isOpen, setIsOpen, flash, totalQty, subtotal, checkoutLoading,
       }}
     >
       {children}

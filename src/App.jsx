@@ -12,12 +12,14 @@ import AboutPage from "./components/pages/AboutPage";
 import FAQPage from "./components/pages/FAQPage";
 import { BRAND } from "./lib/constants";
 import { setOrganizationSchema, setWebSiteSchema } from "./lib/seo";
+import { loadVariantMap } from "./lib/shopify";
 
 export default function App() {
-  // Set global structured data once on mount
+  // Set global structured data + preload Shopify variant IDs on mount
   useEffect(() => {
     setOrganizationSchema();
     setWebSiteSchema();
+    loadVariantMap(); // async — populates handle→variantId map for cart checkout
   }, []);
 
   return (

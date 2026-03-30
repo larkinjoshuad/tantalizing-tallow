@@ -3,7 +3,7 @@ import { BRAND, getProductImage } from "../../lib/constants";
 import { useCart } from "../../context/CartContext";
 
 export default function CartDrawer() {
-  const { items, isOpen, setIsOpen, updateQty, removeItem, subtotal, checkout } = useCart();
+  const { items, isOpen, setIsOpen, updateQty, removeItem, subtotal, checkout, checkoutLoading } = useCart();
   const C = BRAND.colors;
   const freeShip = subtotal >= BRAND.freeShipMin;
   const remaining = Math.max(0, BRAND.freeShipMin - subtotal);
@@ -187,19 +187,24 @@ export default function CartDrawer() {
             </div>
             <button
               onClick={checkout}
+              disabled={checkoutLoading}
               style={{
                 width: "100%",
                 padding: "16px 0",
-                background: `linear-gradient(135deg, ${C.gold}, ${C.goldLight})`,
+                background: checkoutLoading
+                  ? C.textMuted
+                  : `linear-gradient(135deg, ${C.gold}, ${C.goldLight})`,
                 border: "none",
                 color: "#0a0a0a",
                 borderRadius: 12,
-                cursor: "pointer",
+                cursor: checkoutLoading ? "wait" : "pointer",
                 fontWeight: 700,
                 fontSize: 16,
+                opacity: checkoutLoading ? 0.7 : 1,
+                transition: "opacity 0.2s",
               }}
             >
-              Checkout
+              {checkoutLoading ? "Preparing checkout…" : "Checkout"}
             </button>
             <p style={{ color: C.textMuted, fontSize: 12, textAlign: "center", margin: "12px 0 0" }}>
               Secure checkout powered by Shopify
