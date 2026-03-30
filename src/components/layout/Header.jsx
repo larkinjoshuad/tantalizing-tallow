@@ -1,4 +1,4 @@
-import { Search, ShoppingCart, Menu, X } from "lucide-react";
+import { Search, ShoppingCart, Menu, X, MessageCircle, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BRAND } from "../../lib/constants";
@@ -213,6 +213,110 @@ export default function Header() {
           </div>
         )}
       </nav>
+
+      {/* TallowExpert CTA Banner */}
+      <div
+        onClick={() => {
+          const btn = document.querySelector('[aria-label="Open TallowExpert chat"]');
+          if (btn) btn.click();
+        }}
+        style={{
+          background: `linear-gradient(135deg, ${C.gold}18, ${C.goldDark}25, ${C.gold}18)`,
+          borderBottom: `1px solid ${C.gold}35`,
+          padding: "14px 32px",
+          cursor: "pointer",
+          transition: "all 0.3s ease",
+          position: "relative",
+          overflow: "hidden",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.background = `linear-gradient(135deg, ${C.gold}30, ${C.goldDark}40, ${C.gold}30)`;
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.background = `linear-gradient(135deg, ${C.gold}18, ${C.goldDark}25, ${C.gold}18)`;
+        }}
+      >
+        {/* Animated shimmer overlay */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: "-100%",
+            width: "200%",
+            height: "100%",
+            background: `linear-gradient(90deg, transparent, ${C.gold}10, transparent)`,
+            animation: "shimmerSlide 3s infinite",
+          }}
+        />
+        <div
+          style={{
+            maxWidth: 1280,
+            margin: "0 auto",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 12,
+            position: "relative",
+            zIndex: 1,
+          }}
+        >
+          <div
+            style={{
+              width: 36,
+              height: 36,
+              borderRadius: "50%",
+              background: `linear-gradient(135deg, ${C.gold}, ${C.goldLight})`,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+              boxShadow: `0 0 16px ${C.gold}40`,
+            }}
+          >
+            <MessageCircle size={18} color="#0a0a0a" fill="#0a0a0a" />
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <span
+              style={{
+                color: C.gold,
+                fontWeight: 700,
+                fontSize: 15,
+                letterSpacing: "0.02em",
+              }}
+            >
+              Ask TallowExpert AI
+            </span>
+            <span style={{ color: C.textMuted, fontSize: 14 }}>
+              — Get personalized skincare recommendations instantly
+            </span>
+          </div>
+          <div
+            style={{
+              padding: "7px 18px",
+              background: `linear-gradient(135deg, ${C.gold}, ${C.goldLight})`,
+              borderRadius: 20,
+              color: "#0a0a0a",
+              fontWeight: 700,
+              fontSize: 13,
+              letterSpacing: "0.03em",
+              flexShrink: 0,
+              display: "flex",
+              alignItems: "center",
+              gap: 6,
+            }}
+          >
+            <Sparkles size={13} />
+            Chat Now
+          </div>
+        </div>
+
+        <style>{`
+          @keyframes shimmerSlide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+          }
+        `}</style>
+      </div>
     </>
   );
 }
