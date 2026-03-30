@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import { BRAND } from "../../lib/constants";
+import { setMeta, setFAQSchema, setBreadcrumbSchema, setSpeakableSchema, PAGE_SEO } from "../../lib/seo";
 
+// ─── FAQ Data ───
+// Structured for both UI rendering AND JSON-LD FAQPage schema (AEO critical).
+// Each Q&A is a direct, concise answer — optimized for AI answer engine extraction.
 const FAQS = [
   {
     q: "What is tallow and why is it good for skin?",
@@ -43,6 +47,26 @@ const FAQS = [
     q: "What makes Tantalizing Tallow different from other tallow brands?",
     a: "Every batch is whipped by hand in small quantities. We use only grass-fed, triple-filtered tallow paired with wildcrafted botanicals. No mass production, no shortcuts — just real skincare made with intention.",
   },
+  {
+    q: "What is the best tallow face cream for dry skin?",
+    a: "For dry skin, our Frankincense & Manuka Honey Face Cream ($40) with high-potency Manuka honey 1122+ delivers the most intense hydration. For a budget-friendly option, the Frankincense & Vanilla Face Cream ($22) with Manuka honey 829+ is excellent. Both deeply nourish depleted skin and support a healthy skin barrier.",
+  },
+  {
+    q: "What tallow products help with acne?",
+    a: "Our Clarifying Face Cream (also called Clear & Calm) is specifically formulated for acne-prone and oily skin. It contains Manuka honey 829+, black seed oil, tea tree oil, and helichrysum — ingredients known to calm breakouts while hydrating without clogging pores. Layer it over our HydraBloom Hyaluronic Acid Serum for balanced, clear skin.",
+  },
+  {
+    q: "Do you have skincare products for men?",
+    a: "Yes! Our Rugged Revival face cream ($20) from the Men's Collection is a rich, masculine face cream with vanilla-infused tallow, Manuka honey 829, and castor oil. It deeply hydrates rough, dry skin and leaves a subtle, cologne-inspired scent. Perfect for men who want effective, natural skincare.",
+  },
+  {
+    q: "What is beef tallow moisturizer?",
+    a: "Beef tallow moisturizer is a natural skincare product made from rendered grass-fed beef fat. Tallow's fatty acid profile is remarkably similar to human skin lipids, making it one of the most biocompatible moisturizers in nature. It absorbs deeply, delivers vitamins A, D, E, and K, and supports the skin barrier without synthetic ingredients. Tantalizing Tallow whips ours into a cloud-like consistency with wildcrafted botanicals.",
+  },
+  {
+    q: "Is tallow better than regular moisturizer?",
+    a: "Grass-fed tallow offers several advantages over conventional moisturizers: it contains no synthetic preservatives, parabens, or petroleum derivatives. Its fatty acid profile closely mirrors human skin lipids, so it absorbs more efficiently than many commercial creams. Tallow also naturally contains fat-soluble vitamins (A, D, E, K) that support skin repair and barrier function.",
+  },
 ];
 
 function FAQItem({ faq }) {
@@ -54,6 +78,9 @@ function FAQItem({ faq }) {
       style={{
         borderBottom: `1px solid ${C.border}`,
       }}
+      itemScope
+      itemProp="mainEntity"
+      itemType="https://schema.org/Question"
     >
       <button
         onClick={() => setOpen(!open)}
@@ -69,7 +96,10 @@ function FAQItem({ faq }) {
           textAlign: "left",
         }}
       >
-        <span style={{ color: C.text, fontSize: 16, fontWeight: 600, paddingRight: 16 }}>
+        <span
+          itemProp="name"
+          style={{ color: C.text, fontSize: 16, fontWeight: 600, paddingRight: 16 }}
+        >
           {faq.q}
         </span>
         <ChevronDown
@@ -82,13 +112,25 @@ function FAQItem({ faq }) {
           }}
         />
       </button>
-      {open && (
-        <div style={{ paddingBottom: 20 }}>
-          <p style={{ color: C.textMuted, fontSize: 15, lineHeight: 1.8, margin: 0 }}>
-            {faq.a}
-          </p>
-        </div>
-      )}
+      {/* Always render the answer in DOM for crawlers, visually hide when closed */}
+      <div
+        itemScope
+        itemProp="acceptedAnswer"
+        itemType="https://schema.org/Answer"
+        style={{
+          paddingBottom: open ? 20 : 0,
+          maxHeight: open ? 500 : 0,
+          overflow: "hidden",
+          transition: "max-height 0.3s ease, padding-bottom 0.3s ease",
+        }}
+      >
+        <p
+          itemProp="text"
+          style={{ color: C.textMuted, fontSize: 15, lineHeight: 1.8, margin: 0 }}
+        >
+          {faq.a}
+        </p>
+      </div>
     </div>
   );
 }
@@ -96,8 +138,25 @@ function FAQItem({ faq }) {
 export default function FAQPage() {
   const C = BRAND.colors;
 
+  useEffect(() => {
+    // Page-level SEO
+    setMeta(PAGE_SEO.faq);
+    setBreadcrumbSchema([
+      { name: "Home", url: "/" },
+      { name: "FAQ" },
+    ]);
+    // AEO: FAQPage structured data — the highest-impact AEO schema
+    setFAQSchema(FAQS);
+    // AEO: Mark FAQ content as speakable for voice assistants
+    setSpeakableSchema(["[itemtype='https://schema.org/Answer'] [itemprop='text']"]);
+  }, []);
+
   return (
-    <section style={{ maxWidth: 800, margin: "0 auto", padding: "60px 32px" }}>
+    <section
+      style={{ maxWidth: 800, margin: "0 auto", padding: "60px 32px" }}
+      itemScope
+      itemType="https://schema.org/FAQPage"
+    >
       <h1
         style={{
           fontSize: 36,

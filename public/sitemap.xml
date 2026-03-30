@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.tantalizingtallow.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Shop All Products -->
+  <url>
+    <loc>https://www.tantalizingtallow.com/products</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://www.tantalizingtallow.com/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://www.tantalizingtallow.com/faq</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ─── Individual Product Pages ─── -->
+
+  <url>
+    <loc>https://www.tantalizingtallow.com/product/blue-tansy-whipped-face-cream</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_e92dfc5c-6957-496d-bc61-457818162326.png</image:loc>
+      <image:title>Blue Tansy Whipped Face Cream — Natural Tallow Skincare</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.tantalizingtallow.com/product/acne-face-cream</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_b69b58da-634f-42a6-9315-a3074867cc93.jpg</image:loc>
+      <image:title>Clarifying Face Cream for Acne-Prone Skin</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.tantalizingtallow.com/product/whipped-tallow-cleansing-balm</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_3a7c3046-cb14-42cc-9a23-f7390a50d103.png</image:loc>
+      <image:title>Whipped Tallow Cleansing Balm</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.tantalizingtallow.com/product/cost-effective-vanilla-tallow-body-butter-face-cream</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_8552804f-9d37-49aa-bbaa-309c203b10d5.png</image:loc>
+      <image:title>Vanilla Tallow Body Butter</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.tantalizingtallow.com/product/vanilla-velvet-body-butter</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_cece441f-aec1-4fdd-bf1e-5a2f3ac7b3af.png</image:loc>
+      <image:title>Custom Whipped Body Butter</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.tantalizingtallow.com/product/frankincense-manuka-honey-face-cream</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_29113693-29da-4026-8e80-da9c0f5f5ea3.png</image:loc>
+      <image:title>Frankincense and Manuka Honey Face Cream</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.tantalizingtallow.com/product/vanilla-frankincense-face-cream</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_e3c864e2-f288-4ab6-b18f-fe62e38199e0.png</image:loc>
+      <image:title>Frankincense and Vanilla Face Cream</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.tantalizingtallow.com/product/summer-shimmer-body-butter</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_d45017c6-b6b8-4c42-864a-2ce88ddef2b6.png</image:loc>
+      <image:title>Summer Shimmer Body Butter with Gold Mica</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.tantalizingtallow.com/product/nourish-restore-hair-oil</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_77a7760d-54db-40a3-a878-2d94a2c60fbb.jpg</image:loc>
+      <image:title>Nourish and Restore Hair and Scalp Oil</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.tantalizingtallow.com/product/hydrabloom-botanical-serum</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_1b821661-94b3-4183-be44-ff92af969fcd.png</image:loc>
+      <image:title>HydraBloom Botanical Hyaluronic Acid Serum</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.tantalizingtallow.com/product/lavender-and-magnesium-calming-cream</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_8ab265f4-f5ed-42aa-a91a-0b83eb1837a7.png</image:loc>
+      <image:title>Lavender and Vanilla Magnesium Sleep Balm</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.tantalizingtallow.com/product/luxe-face-cream</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_d2571701-17c7-4b3f-add2-7f785eeb8433.jpg</image:loc>
+      <image:title>Luxe Face Cream with Bakuchiol and Rosehip</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.tantalizingtallow.com/product/vanilla-peppermint-lip-balm</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_4e093bc6-131a-44d3-acec-f0685157807e.png</image:loc>
+      <image:title>Minted Vanilla Lip Balm with Manuka Honey</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.tantalizingtallow.com/product/orange-blossom-turmeric-face-cream</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_69b25102-4c21-42f2-bbb3-316c29552328.png</image:loc>
+      <image:title>Orange Blossom and Turmeric Face Cream</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.tantalizingtallow.com/product/tantalizingtallow-sun-veil</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_f4670cee-37e0-4f1d-907b-eeac274e66ed.png</image:loc>
+      <image:title>Sun Veil Natural Tallow Sunscreen</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.tantalizingtallow.com/product/espresso-face-body-scrub</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_e7f4990c-f46d-4616-993a-a8b2bd124122.jpg</image:loc>
+      <image:title>Vanilla Espresso Coffee Sugar Scrub</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.tantalizingtallow.com/product/body-butter-fragrance-of-the-month</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://tantalizingtallow.com/cdn/shop/files/preview_images/a19dae3a897e45e89eccbd290fc71cd3.thumbnail.0000000000.jpg</image:loc>
+      <image:title>Fragrance of the Month Limited Edition Body Butter</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.tantalizingtallow.com/product/mens-face-cream</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_95b598b9-43a8-4018-81ca-18d3e3a47ecd.jpg</image:loc>
+      <image:title>Rugged Revival Mens Face Cream</image:title>
+    </image:image>
+  </url>
+
+</urlset>

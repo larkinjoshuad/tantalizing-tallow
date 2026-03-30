@@ -1,0 +1,30 @@
+# Tantalizing Tallow — robots.txt
+# Allow all crawlers full access for maximum SEO/AEO coverage
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.tantalizingtallow.com/sitemap.xml
+
+# Allow AI answer engines
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Block API routes from indexing
+Disallow: /api/

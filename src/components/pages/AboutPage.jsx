@@ -1,8 +1,18 @@
+import { useEffect } from "react";
 import { BRAND } from "../../lib/constants";
+import { setMeta, setBreadcrumbSchema, PAGE_SEO } from "../../lib/seo";
 import { Heart, Leaf, Sparkles, Shield } from "lucide-react";
 
 export default function AboutPage() {
   const C = BRAND.colors;
+
+  useEffect(() => {
+    setMeta(PAGE_SEO.about);
+    setBreadcrumbSchema([
+      { name: "Home", url: "/" },
+      { name: "Our Story" },
+    ]);
+  }, []);
 
   return (
     <>

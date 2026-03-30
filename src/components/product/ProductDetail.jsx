@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Sparkles, Minus, Plus, Truck, Leaf, Shield, Star } from "lucide-react";
 import { BRAND, PRODUCTS, getProductImage } from "../../lib/constants";
 import { useCart } from "../../context/CartContext";
+import {
+  setMeta, setProductSchema, setBreadcrumbSchema, removeJsonLd,
+  getProductSeoTitle, getProductSeoDescription,
+} from "../../lib/seo";
 
 export default function ProductDetail() {
   const { handle } = useParams();
@@ -10,6 +14,29 @@ export default function ProductDetail() {
   const [qty, setQty] = useState(1);
   const { addItem } = useCart();
   const C = BRAND.colors;
+
+  // SEO: set unique meta tags and structured data per product
+  useEffect(() => {
+    if (product) {
+      setMeta({
+        title: getProductSeoTitle(product),
+        description: getProductSeoDescription(product),
+        image: getProductImage(product),
+        url: `https://www.tantalizingtallow.com/product/${product.handle}`,
+        ogType: "product",
+      });
+      setProductSchema({ ...product, image: getProductImage(product) });
+      setBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Products", url: "/products" },
+        { name: product.name },
+      ]);
+    }
+    return () => {
+      removeJsonLd("product");
+      removeJsonLd("breadcrumb");
+    };
+  }, [handle, product]);
 
   if (!product) {
     return (
@@ -51,8 +78,9 @@ export default function ProductDetail() {
         <div style={{ borderRadius: 20, overflow: "hidden", position: "relative" }}>
           <img
             src={getProductImage(product)}
-            alt={product.name}
+            alt={`${product.name} — Natural tallow ${product.category === "face" ? "face cream" : product.category === "body" ? "body butter" : product.category} by Tantalizing Tallow`}
             style={{ width: "100%", display: "block" }}
+            loading="eager"
           />
         </div>
 

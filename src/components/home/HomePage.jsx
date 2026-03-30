@@ -1,11 +1,20 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight, Sparkles, Leaf, Heart, Truck, Shield } from "lucide-react";
 import { BRAND, PRODUCTS } from "../../lib/constants";
+import { setMeta, setItemListSchema, setBreadcrumbSchema, PAGE_SEO } from "../../lib/seo";
 import ProductCard from "../product/ProductCard";
 
 export default function HomePage() {
   const C = BRAND.colors;
   const featured = PRODUCTS.filter((p) => p.badge);
+
+  useEffect(() => {
+    setMeta(PAGE_SEO.home);
+    setBreadcrumbSchema([{ name: "Home", url: "/" }]);
+    setItemListSchema(featured);
+    return () => {};
+  }, []);
 
   return (
     <>

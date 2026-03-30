@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 import Header from "./components/layout/Header";
@@ -10,8 +11,15 @@ import ProductDetail from "./components/product/ProductDetail";
 import AboutPage from "./components/pages/AboutPage";
 import FAQPage from "./components/pages/FAQPage";
 import { BRAND } from "./lib/constants";
+import { setOrganizationSchema, setWebSiteSchema } from "./lib/seo";
 
 export default function App() {
+  // Set global structured data once on mount
+  useEffect(() => {
+    setOrganizationSchema();
+    setWebSiteSchema();
+  }, []);
+
   return (
     <BrowserRouter>
       <CartProvider>
