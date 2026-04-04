@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { CartProvider } from "./context/CartContext";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
@@ -51,6 +53,8 @@ export default function App() {
           <Footer />
           <CartDrawer />
           <TallowExpertChat />
+          <Analytics />
+          <SpeedInsights />
         </div>
       </CartProvider>
     </BrowserRouter>
