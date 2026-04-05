@@ -149,7 +149,7 @@ export default function TallowExpertChat() {
             >
               <Sparkles size={20} color="#0a0a0a" />
             </div>
-            <div>
+            <div style={{ flex: 1 }}>
               <div style={{ color: C.text, fontWeight: 700, fontSize: 15 }}>
                 TallowExpert
               </div>
@@ -157,6 +157,25 @@ export default function TallowExpertChat() {
                 Your personal skincare advisor
               </div>
             </div>
+            <button
+              onClick={() => setIsOpen(false)}
+              aria-label="Close chat"
+              style={{
+                background: "transparent",
+                border: "none",
+                cursor: "pointer",
+                padding: 6,
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "background 0.2s",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = `${C.border}`)}
+              onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+            >
+              <X size={20} color={C.textMuted} />
+            </button>
           </div>
 
           {/* Messages */}
