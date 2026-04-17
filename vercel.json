@@ -7,6 +7,9 @@
     { "source": "/api/og-image", "destination": "/api/og-image" },
     { "source": "/robots.txt", "destination": "/robots.txt" },
     { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
+    { "source": "/cart/:path*", "destination": "https://tantalizingtallow.myshopify.com/cart/:path*" },
+    { "source": "/checkout/:path*", "destination": "https://tantalizingtallow.myshopify.com/checkout/:path*" },
+    { "source": "/cdn/:path*", "destination": "https://tantalizingtallow.myshopify.com/cdn/:path*" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
