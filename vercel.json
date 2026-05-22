@@ -2,6 +2,9 @@
   "buildCommand": "npm run build:full",
   "outputDirectory": "dist",
   "framework": "vite",
+  "redirects": [
+    { "source": "/product/tantalizingtallow-sun-veil", "destination": "/products", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/api/chat", "destination": "/api/chat" },
     { "source": "/api/og-image", "destination": "/api/og-image" },
