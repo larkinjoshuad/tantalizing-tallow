@@ -1,4 +1,4 @@
-import { Search, ShoppingCart, Menu, X, MessageCircle, Sparkles } from "lucide-react";
+import { Search, ShoppingCart, Menu, X, MessageCircle, Sparkles, HelpCircle } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BRAND } from "../../lib/constants";
@@ -214,109 +214,129 @@ export default function Header() {
         )}
       </nav>
 
-      {/* TallowExpert CTA Banner */}
-      <div
-        onClick={() => {
-          const btn = document.querySelector('[aria-label="Open TallowExpert chat"]');
-          if (btn) btn.click();
-        }}
+      {/* TallowExpert helper bar — frames as a Q&A widget, not an ad */}
+      <section
+        aria-label="Ask the TallowExpert assistant"
         style={{
-          background: `linear-gradient(135deg, ${C.gold}18, ${C.goldDark}25, ${C.gold}18)`,
-          borderBottom: `1px solid ${C.gold}35`,
-          padding: "14px 32px",
-          cursor: "pointer",
-          transition: "all 0.3s ease",
-          position: "relative",
-          overflow: "hidden",
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.background = `linear-gradient(135deg, ${C.gold}30, ${C.goldDark}40, ${C.gold}30)`;
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.background = `linear-gradient(135deg, ${C.gold}18, ${C.goldDark}25, ${C.gold}18)`;
+          background: C.surface,
+          borderBottom: `1px solid ${C.border}`,
+          padding: "16px 32px",
         }}
       >
-        {/* Animated shimmer overlay */}
         <div
           style={{
-            position: "absolute",
-            top: 0,
-            left: "-100%",
-            width: "200%",
-            height: "100%",
-            background: `linear-gradient(90deg, transparent, ${C.gold}10, transparent)`,
-            animation: "shimmerSlide 3s infinite",
-          }}
-        />
-        <div
-          style={{
-            maxWidth: 1280,
+            maxWidth: 1100,
             margin: "0 auto",
             display: "flex",
             alignItems: "center",
+            gap: 16,
+            flexWrap: "wrap",
             justifyContent: "center",
-            gap: 12,
-            position: "relative",
-            zIndex: 1,
           }}
         >
+          {/* Icon + prompt */}
           <div
             style={{
-              width: 36,
-              height: 36,
-              borderRadius: "50%",
-              background: `linear-gradient(135deg, ${C.gold}, ${C.goldLight})`,
               display: "flex",
               alignItems: "center",
-              justifyContent: "center",
+              gap: 12,
               flexShrink: 0,
-              boxShadow: `0 0 16px ${C.gold}40`,
             }}
           >
-            <MessageCircle size={18} color="#0a0a0a" fill="#0a0a0a" />
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", justifyContent: "center" }}>
-            <span
+            <div
               style={{
-                color: C.gold,
-                fontWeight: 700,
-                fontSize: 15,
-                letterSpacing: "0.02em",
+                width: 32,
+                height: 32,
+                borderRadius: "50%",
+                background: `${C.gold}1f`,
+                border: `1px solid ${C.gold}55`,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
               }}
             >
-              Ask TallowExpert AI
-            </span>
-            <span style={{ color: C.text, fontSize: 14, fontWeight: 600 }}>
-              — Your personal skincare advisor knows every product, ingredient & skin type
-            </span>
+              <HelpCircle size={16} color={C.gold} />
+            </div>
+            <div style={{ color: C.text, fontSize: 14, fontWeight: 600 }}>
+              Have a skin question?{" "}
+              <span style={{ color: C.textMuted, fontWeight: 500 }}>
+                Try asking:
+              </span>
+            </div>
           </div>
-          <div
-            style={{
-              padding: "7px 18px",
-              background: `linear-gradient(135deg, ${C.gold}, ${C.goldLight})`,
-              borderRadius: 20,
-              color: "#0a0a0a",
-              fontWeight: 700,
-              fontSize: 13,
-              letterSpacing: "0.03em",
-              flexShrink: 0,
-              display: "flex",
-              alignItems: "center",
-              gap: 6,
-            }}
-          >
-            <Sparkles size={13} />
-            Chat Now
+
+          {/* Example question chips — clicking opens the chat */}
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+            {[
+              "What's good for dry skin?",
+              "Build me a routine",
+              "Tell me about Manuka honey",
+            ].map((q) => (
+              <button
+                key={q}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const btn = document.querySelector('[aria-label="Open TallowExpert chat"]');
+                  if (btn) {
+                    btn.click();
+                    // Pre-fill the chat input via a custom event the chat
+                    // panel listens for. If not yet wired, the chat still
+                    // opens — user types or picks a suggestion.
+                    window.dispatchEvent(
+                      new CustomEvent("tallow:ask", { detail: { question: q } })
+                    );
+                  }
+                }}
+                style={{
+                  background: C.card,
+                  border: `1px solid ${C.border}`,
+                  color: C.text,
+                  padding: "8px 14px",
+                  borderRadius: 18,
+                  fontSize: 13,
+                  fontWeight: 500,
+                  cursor: "pointer",
+                  whiteSpace: "nowrap",
+                  transition: "border-color 0.2s, background 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = `${C.gold}aa`;
+                  e.currentTarget.style.background = `${C.gold}10`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = C.border;
+                  e.currentTarget.style.background = C.card;
+                }}
+              >
+                {q}
+              </button>
+            ))}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                const btn = document.querySelector('[aria-label="Open TallowExpert chat"]');
+                if (btn) btn.click();
+              }}
+              style={{
+                background: "transparent",
+                border: "none",
+                color: C.goldLight,
+                padding: "8px 6px",
+                fontSize: 13,
+                fontWeight: 600,
+                cursor: "pointer",
+                whiteSpace: "nowrap",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 4,
+              }}
+            >
+              Ask something else <MessageCircle size={13} />
+            </button>
           </div>
         </div>
-
-        <style>{`
-          @keyframes shimmerSlide {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(50%); }
-          }
-        `}</style>
-      </div>
+      </section>
     </>
   );
 }
