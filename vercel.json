@@ -2,13 +2,23 @@
   "buildCommand": "npm run build:full",
   "outputDirectory": "dist",
   "framework": "vite",
+  "redirects": [
+    {
+      "source": "/cart/:path*",
+      "destination": "https://tantalizingtallow.myshopify.com/cart/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/checkout/:path*",
+      "destination": "https://tantalizingtallow.myshopify.com/checkout/:path*",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     { "source": "/api/chat", "destination": "/api/chat" },
     { "source": "/api/og-image", "destination": "/api/og-image" },
     { "source": "/robots.txt", "destination": "/robots.txt" },
     { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
-    { "source": "/cart/:path*", "destination": "https://tantalizingtallow.myshopify.com/cart/:path*" },
-    { "source": "/checkout/:path*", "destination": "https://tantalizingtallow.myshopify.com/checkout/:path*" },
     { "source": "/cdn/:path*", "destination": "https://tantalizingtallow.myshopify.com/cdn/:path*" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
