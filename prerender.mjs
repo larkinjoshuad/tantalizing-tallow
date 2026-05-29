@@ -19,7 +19,7 @@ const { PRODUCTS } = await import("./src/lib/constants.js")
 
 const SITE_URL = "https://www.tantalizingtallow.com";
 const SITE_NAME = "Tantalizing Tallow";
-const DEFAULT_IMAGE = "https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_e92dfc5c-6957-496d-bc61-457818162326.png";
+const DEFAULT_IMAGE = "https://www.tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_e92dfc5c-6957-496d-bc61-457818162326.png";
 const DEFAULT_DESC = "Handcrafted tallow skincare made from grass-fed, triple-filtered beef tallow and wildcrafted botanicals. Face creams, body butters, serums, and more — 100% natural, preservative-free, whipped by hand.";
 
 const template = readFileSync(resolve(__dirname, "dist/index.html"), "utf-8");
@@ -154,6 +154,105 @@ function injectIntoTemplate(templateHtml, route, appHtml) {
   return html;
 }
 
+// ─── 404 page ──────────────────────────────────────────────────────────────
+// Render to dist/404.html. Vercel auto-serves this with HTTP 404 status for
+// any unmatched route, replacing the SPA fallback that returned HTTP 200 with
+// the homepage HTML at every wrong URL.
+function generate404Html(template) {
+  // Render the React app at a sentinel path → falls through to the `*` route
+  // which renders PlaceholderPage / NotFoundPage with "Page Not Found" copy.
+  const appHtml = render("/__not_found__");
+
+  const title = `Page Not Found | ${SITE_NAME}`;
+  const description = "The page you're looking for doesn't exist. Browse our handcrafted tallow skincare or get in touch.";
+  const metaHtml = `
+    <title>${escHtml(title)}</title>
+    <meta name="description" content="${escHtml(description)}" />
+    <meta name="robots" content="noindex,follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="${escHtml(title)}" />
+    <meta property="og:description" content="${escHtml(description)}" />
+    <meta property="og:image" content="${escHtml(DEFAULT_IMAGE)}" />
+    <meta property="og:site_name" content="${SITE_NAME}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escHtml(title)}" />
+    <meta name="twitter:description" content="${escHtml(description)}" />
+    <meta name="twitter:image" content="${escHtml(DEFAULT_IMAGE)}" />`;
+
+  let html = template;
+  html = html.replace(/<title>.*?<\/title>/, "");
+  html = html.replace(/<meta name="description" content="[^"]*" \/>/, "");
+  html = html.replace(/<link rel="canonical" href="[^"]*" \/>/, "");
+  html = html.replace(
+    /<!-- Open Graph \/ Facebook -->[\s\S]*?<!-- Twitter Card -->/,
+    "<!-- Open Graph + Twitter: see injected meta below -->\n    <!-- Twitter Card -->"
+  );
+  html = html.replace(
+    /<!-- Twitter Card -->[\s\S]*?<!-- Preconnect/,
+    "<!-- Twitter + OG: injected -->\n\n    <!-- Preconnect"
+  );
+  html = html.replace("</head>", `${metaHtml}\n  </head>`);
+  html = html.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
+  return html;
+}
+
+// ─── Sitemap auto-generation ───────────────────────────────────────────────
+// Single source of truth: routes come from getRoutes() (driven by PRODUCTS +
+// staticPages). No more hand-maintained public/sitemap.xml drift.
+function generateSitemapXml() {
+  const today = new Date().toISOString().slice(0, 10);
+  const routes = getRoutes();
+
+  // Per-route priority and change frequency hints
+  const priority = (route) => {
+    if (route === "/") return "1.0";
+    if (route === "/products") return "0.9";
+    if (route === "/faq") return "0.8";
+    if (route.startsWith("/product/")) return "0.8";
+    if (route === "/about" || route === "/contact") return "0.7";
+    if (route === "/refunds") return "0.4";
+    if (route === "/privacy" || route === "/terms") return "0.3";
+    return "0.5";
+  };
+  const changefreq = (route) => {
+    if (route === "/" || route === "/products" || route.startsWith("/product/")) return "weekly";
+    if (route === "/about" || route === "/faq" || route === "/contact") return "monthly";
+    if (route === "/privacy" || route === "/terms" || route === "/refunds") return "yearly";
+    return "monthly";
+  };
+
+  // Per-product image entries (image:loc + image:title for richer indexing)
+  const imageBlock = (route) => {
+    if (!route.startsWith("/product/")) return "";
+    const handle = route.replace("/product/", "");
+    const product = PRODUCTS?.find((p) => p.handle === handle);
+    if (!product?.image) return "";
+    return `
+    <image:image>
+      <image:loc>${escHtml(product.image)}</image:loc>
+      <image:title>${escHtml(product.name)}</image:title>
+    </image:image>`;
+  };
+
+  const urls = routes
+    .map(
+      (route) => `  <url>
+    <loc>${SITE_URL}${route === "/" ? "/" : route}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${changefreq(route)}</changefreq>
+    <priority>${priority(route)}</priority>${imageBlock(route)}
+  </url>`
+    )
+    .join("\n");
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${urls}
+</urlset>
+`;
+}
+
 async function main() {
   const routes = getRoutes();
   console.log(`\n🔨 Pre-rendering ${routes.length} routes...\n`);
@@ -175,8 +274,28 @@ async function main() {
     }
   }
 
-  console.log(`\n✅ Pre-rendered: ${success}/${routes.length} routes`);
-  if (failed > 0) { console.log(`⚠️  Failed: ${failed} routes`); process.exit(1); }
+  // 404.html — Vercel auto-serves on unmatched routes with HTTP 404
+  try {
+    const html404 = generate404Html(template);
+    writeFileSync(resolve(__dirname, "dist/404.html"), html404);
+    console.log(`  ✓ /404.html (HTTP 404 page)`);
+  } catch (err) {
+    console.error(`  ✗ 404.html: ${err.message}`);
+    failed++;
+  }
+
+  // sitemap.xml — replaces the hand-maintained public/sitemap.xml
+  try {
+    const sitemap = generateSitemapXml();
+    writeFileSync(resolve(__dirname, "dist/sitemap.xml"), sitemap);
+    console.log(`  ✓ /sitemap.xml (${routes.length} URLs)`);
+  } catch (err) {
+    console.error(`  ✗ sitemap.xml: ${err.message}`);
+    failed++;
+  }
+
+  console.log(`\n✅ Pre-rendered: ${success}/${routes.length} routes + 404.html + sitemap.xml`);
+  if (failed > 0) { console.log(`⚠️  Failed: ${failed}`); process.exit(1); }
 }
 
 main().catch(err => { console.error("Pre-render failed:", err); process.exit(1); });
