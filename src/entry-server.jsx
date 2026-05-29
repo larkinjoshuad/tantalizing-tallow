@@ -14,6 +14,10 @@ import ProductsPage from "./components/product/ProductsPage.jsx";
 import ProductDetail from "./components/product/ProductDetail.jsx";
 import AboutPage from "./components/pages/AboutPage.jsx";
 import FAQPage from "./components/pages/FAQPage.jsx";
+import ContactPage from "./components/pages/ContactPage.jsx";
+import PrivacyPage from "./components/pages/PrivacyPage.jsx";
+import TermsPage from "./components/pages/TermsPage.jsx";
+import RefundPage from "./components/pages/RefundPage.jsx";
 import { Routes, Route } from "react-router-dom";
 import { BRAND } from "./lib/constants.js";
 
@@ -55,7 +59,10 @@ export function render(url) {
               <Route path="/product/:handle" element={<ProductDetail />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/faq" element={<FAQPage />} />
-              <Route path="/contact" element={<PlaceholderPage title="Contact" />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/privacy" element={<PrivacyPage />} />
+              <Route path="/terms" element={<TermsPage />} />
+              <Route path="/refunds" element={<RefundPage />} />
               <Route path="/blog" element={<PlaceholderPage title="Blog" />} />
               <Route path="*" element={<PlaceholderPage title="404 — Page Not Found" />} />
             </Routes>

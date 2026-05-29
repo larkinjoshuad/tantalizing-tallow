@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { BRAND } from "../../lib/constants";
 import { setMeta, setBreadcrumbSchema, PAGE_SEO } from "../../lib/seo";
-import { Heart, Leaf, Sparkles, Shield } from "lucide-react";
+import { Heart, Leaf, Sparkles, Shield, MapPin, Calendar } from "lucide-react";
 
 export default function AboutPage() {
   const C = BRAND.colors;
@@ -44,35 +44,82 @@ export default function AboutPage() {
             Our Story
           </h1>
           <p style={{ color: C.textMuted, fontSize: 18, lineHeight: 1.8, margin: 0 }}>
-            Born from kitchen alchemy and skin chemistry, Tantalizing Tallow blends
-            time-tested tallow with botanical magic.
+            Luxurious skincare rooted in ancestral wisdom — handcrafted in small
+            batches by a family-run kitchen in the high desert of California.
           </p>
         </div>
       </section>
 
-      {/* Story */}
-      <section style={{ maxWidth: 800, margin: "0 auto", padding: "64px 32px" }}>
-        <h2 style={{ color: C.gold, fontSize: 28, fontWeight: 700, marginBottom: 20 }}>
-          Back to What Works
-        </h2>
-        <p style={{ color: C.textMuted, fontSize: 17, lineHeight: 1.9, marginBottom: 20 }}>
-          In a world full of synthetic creams and confusing ingredients, Tantalizing Tallow
-          began with a simple, luxurious idea: go back to what worked for our grandmothers —
-          and make it glow for today.
-        </p>
-        <p style={{ color: C.textMuted, fontSize: 17, lineHeight: 1.9, marginBottom: 20 }}>
-          Every product starts with grass-fed, triple-filtered beef tallow — the most
-          biocompatible moisturizer nature ever made. Our skin recognizes it because it mirrors
-          the fats already in our cell membranes. We pair it with wildcrafted botanicals,
-          essential oils, and zero synthetic preservatives.
-        </p>
-        <p style={{ color: C.textMuted, fontSize: 17, lineHeight: 1.9, marginBottom: 0 }}>
-          Each batch is whipped by hand in small quantities. No factory lines, no
-          mass production — just real skincare made with intention and care.
-        </p>
+      {/* Founder block */}
+      <section style={{ maxWidth: 900, margin: "0 auto", padding: "64px 32px" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr",
+            gap: 32,
+          }}
+        >
+          <div
+            style={{
+              background: C.surface,
+              border: `1px solid ${C.border}`,
+              borderRadius: 16,
+              padding: "32px 40px",
+            }}
+          >
+            <h2
+              style={{
+                color: C.gold,
+                fontSize: 24,
+                fontWeight: 700,
+                margin: "0 0 12px",
+                letterSpacing: "0.02em",
+              }}
+            >
+              Meet Sarah
+            </h2>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 24,
+                color: C.textMuted,
+                fontSize: 14,
+                marginBottom: 20,
+              }}
+            >
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+                <MapPin size={14} color={C.goldDark} />
+                Tehachapi, California
+              </span>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+                <Calendar size={14} color={C.goldDark} />
+                Founded September 2024
+              </span>
+            </div>
+            <p style={{ color: C.text, fontSize: 17, lineHeight: 1.9, margin: "0 0 16px" }}>
+              Tantalizing Tallow began on a chilly Sunday morning at the stove.
+              I was rendering grass-fed beef tallow for cooking — part of a
+              quiet commitment to ancestral food in our home — when I looked at
+              the pure golden fat pooling in the pot and wondered out loud:{" "}
+              <em>what if this could nourish more than our meals?</em>
+            </p>
+            <p style={{ color: C.text, fontSize: 17, lineHeight: 1.9, margin: "0 0 16px" }}>
+              I whipped a small batch by hand. Then I tried it with vanilla,
+              then jasmine, then turmeric, then a pinch of sweet orange. My
+              kitchen turned into a botanical apothecary. I gave little jars to
+              friends. I posted one photo on social media.
+            </p>
+            <p style={{ color: C.text, fontSize: 17, lineHeight: 1.9, margin: 0 }}>
+              By nightfall, I had twenty orders. Tantalizing Tallow has been
+              hand-whipped, hand-labeled, and hand-shipped from our family
+              kitchen ever since.
+            </p>
+          </div>
+        </div>
       </section>
 
-      {/* Values */}
+      {/* How we make it */}
       <section
         style={{
           background: C.surface,
@@ -81,6 +128,42 @@ export default function AboutPage() {
           padding: "64px 32px",
         }}
       >
+        <div style={{ maxWidth: 800, margin: "0 auto" }}>
+          <h2
+            style={{
+              color: C.text,
+              fontSize: 28,
+              fontWeight: 700,
+              textAlign: "center",
+              margin: "0 0 32px",
+            }}
+          >
+            How Every Jar Is Made
+          </h2>
+          <div style={{ color: C.textMuted, fontSize: 17, lineHeight: 1.9 }}>
+            <p style={{ margin: "0 0 16px" }}>
+              We start with grass-fed beef tallow from pasture-raised cattle.
+              It's slowly rendered, strained, and triple-filtered until it's a
+              pure, soft gold.
+            </p>
+            <p style={{ margin: "0 0 16px" }}>
+              Then it's whipped by hand to a cloud-like consistency and blended
+              with wildcrafted botanicals, infused oils, essential oils, and
+              the occasional Manuka honey or bakuchiol. No synthetic
+              preservatives. No parabens. No fillers.
+            </p>
+            <p style={{ margin: 0 }}>
+              Every product is made in small batches. Our husband shows up at
+              the farmers market with a grin and a box of Luxe jars. Our older
+              kids help label after homework. Every first-time order gets a
+              handwritten thank-you note.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section style={{ padding: "64px 32px" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <h2
             style={{
@@ -118,8 +201,8 @@ export default function AboutPage() {
               },
               {
                 icon: Shield,
-                title: "Skin-First Science",
-                text: "Tallow mirrors human skin lipids. It absorbs deeply without clogging pores or leaving residue.",
+                title: "Skin-First Care",
+                text: "Tallow mirrors the lipids already in your skin. It absorbs efficiently and feels at home on the skin.",
               },
             ].map(({ icon: Icon, title, text }, i) => (
               <div
@@ -160,16 +243,26 @@ export default function AboutPage() {
       </section>
 
       {/* Closing */}
-      <section style={{ maxWidth: 800, margin: "0 auto", padding: "64px 32px", textAlign: "center" }}>
+      <section style={{ maxWidth: 800, margin: "0 auto", padding: "32px 32px 80px", textAlign: "center" }}>
         <p
           style={{
             color: C.goldLight,
             fontSize: 20,
             fontStyle: "italic",
             lineHeight: 1.8,
+            margin: 0,
           }}
         >
           We don't just make balm — we make buttery rituals for skin that tells your story.
+        </p>
+        <p style={{ color: C.textMuted, fontSize: 15, marginTop: 24 }}>
+          Questions, wholesale inquiries, or just want to say hi?{" "}
+          <a
+            href="/contact"
+            style={{ color: C.gold, textDecoration: "none", fontWeight: 600 }}
+          >
+            Get in touch →
+          </a>
         </p>
       </section>
     </>

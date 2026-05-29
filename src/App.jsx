@@ -12,6 +12,10 @@ import ProductsPage from "./components/product/ProductsPage";
 import ProductDetail from "./components/product/ProductDetail";
 import AboutPage from "./components/pages/AboutPage";
 import FAQPage from "./components/pages/FAQPage";
+import ContactPage from "./components/pages/ContactPage";
+import PrivacyPage from "./components/pages/PrivacyPage";
+import TermsPage from "./components/pages/TermsPage";
+import RefundPage from "./components/pages/RefundPage";
 import { BRAND } from "./lib/constants";
 import { setOrganizationSchema, setWebSiteSchema } from "./lib/seo";
 import { loadVariantMap } from "./lib/shopify";
@@ -44,7 +48,10 @@ export default function App() {
               <Route path="/product/:handle" element={<ProductDetail />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/faq" element={<FAQPage />} />
-              <Route path="/contact" element={<PlaceholderPage title="Contact" />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/privacy" element={<PrivacyPage />} />
+              <Route path="/terms" element={<TermsPage />} />
+              <Route path="/refunds" element={<RefundPage />} />
               <Route path="/blog" element={<PlaceholderPage title="Blog" />} />
               <Route path="*" element={<PlaceholderPage title="404 — Page Not Found" />} />
             </Routes>
