@@ -64,21 +64,38 @@ export function CartProvider({ children }) {
   }, []);
 
   /**
-   * Checkout flow — 3-tier strategy:
-   * 1. Use Shopify API checkoutUrl (if cart was synced during addItem)
-   * 2. Build checkout on-the-fly from items (if sync failed but we have variant IDs)
-   * 3. Build Shopify /cart/ permalink (always works if variant IDs are available)
+   * Checkout flow — myshopify-direct strategy.
+   *
+   * Why not use shopifyCart.checkoutUrl from the Storefront API? That URL
+   * is rendered using the Shopify-side primary domain. With our domain
+   * config (apex 307 → www) and Shopify's primary-domain redirect, the
+   * customer's browser ping-pongs between www and apex/myshopify, hitting
+   * ERR_TOO_MANY_REDIRECTS. The fix on Shopify's side is to change the
+   * primary domain to www, but until that's done, we force checkout to
+   * use tantalizingtallow.myshopify.com directly so the customer arrives
+   * at the checkout page without any redirect chain.
+   *
+   * Cost: customer's URL bar shows tantalizingtallow.myshopify.com during
+   * checkout (lower visual trust). Benefit: checkout actually works.
+   *
+   * Once Shopify primary is fixed to www, revert this to the prior
+   * Tier 1 → Tier 2 → Tier 3 strategy and use the API-returned checkoutUrl.
    */
   const checkout = useCallback(async () => {
-    // Tier 1: API checkout URL already available
-    if (shopifyCart?.checkoutUrl) {
-      window.location.href = shopifyCart.checkoutUrl;
+    setCheckoutLoading(true);
+
+    // First-choice: build a permalink directly on myshopify with item
+    // variant IDs. Shopify creates a cart and lands on its own
+    // /checkouts/cn/<token> page — no redirect chain involved.
+    const permalink = buildShopifyCartUrl(items);
+    if (permalink) {
+      window.location.href = permalink;
       return;
     }
 
-    setCheckoutLoading(true);
-
-    // Tier 2: Try creating a Shopify cart with all items right now
+    // Fallback: variant IDs not yet resolved (slow connection or first
+    // page load). Try the Storefront API to create a cart, then convert
+    // its checkoutUrl host to myshopify so the customer skips the loop.
     try {
       const lines = items
         .map((item) => {
@@ -91,7 +108,13 @@ export function CartProvider({ children }) {
         const cart = await createCart(lines);
         if (cart?.checkoutUrl) {
           setShopifyCart(cart);
-          window.location.href = cart.checkoutUrl;
+          // Replace any primary-domain host with myshopify so the
+          // checkout URL doesn't loop through Vercel's domain redirects.
+          const safeUrl = cart.checkoutUrl.replace(
+            /^https:\/\/(www\.)?tantalizingtallow\.com/,
+            "https://tantalizingtallow.myshopify.com"
+          );
+          window.location.href = safeUrl;
           return;
         }
       }
@@ -99,17 +122,10 @@ export function CartProvider({ children }) {
       console.warn("[Cart] On-demand checkout creation failed:", err.message);
     }
 
-    // Tier 3: Build Shopify /cart/ permalink (works without API)
-    const permalink = buildShopifyCartUrl(items);
-    if (permalink) {
-      window.location.href = permalink;
-    } else {
-      // Last resort — shouldn't happen, but handle gracefully
-      window.open("https://tantalizingtallow.myshopify.com/cart", "_blank");
-    }
-
+    // Last resort — couldn't build a cart at all.
+    window.location.href = "https://tantalizingtallow.myshopify.com/cart";
     setCheckoutLoading(false);
-  }, [shopifyCart, items]);
+  }, [items]);
 
   const totalQty = items.reduce((s, i) => s + i.qty, 0);
   const subtotal = items.reduce((s, i) => s + i.price * i.qty, 0);

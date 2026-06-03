@@ -2,18 +2,6 @@
   "buildCommand": "npm run build:full",
   "outputDirectory": "dist",
   "framework": "vite",
-  "redirects": [
-    {
-      "source": "/cart/:path*",
-      "destination": "https://tantalizingtallow.myshopify.com/cart/:path*",
-      "permanent": false
-    },
-    {
-      "source": "/checkout/:path*",
-      "destination": "https://tantalizingtallow.myshopify.com/checkout/:path*",
-      "permanent": false
-    }
-  ],
   "rewrites": [
     { "source": "/api/chat", "destination": "/api/chat" },
     { "source": "/api/og-image", "destination": "/api/og-image" },

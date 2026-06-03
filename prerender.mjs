@@ -81,6 +81,7 @@ function generateHead(route) {
     "/products": { title:`Shop All Tallow Skincare Products | ${SITE_NAME}`, description:"Browse 18+ handcrafted tallow skincare products: face creams, body butters, serums, cleansing balms, hair oils, lip balms, and sun protection. All natural, grass-fed tallow, no preservatives. Free shipping on $75+.", url:`${SITE_URL}/products`, jsonLd:[organizationSchema(),webSiteSchema(),itemListSchema()] },
     "/about": { title:`Our Story — Why Grass-Fed Tallow Skincare | ${SITE_NAME}`, description:"Learn why Tantalizing Tallow uses grass-fed, triple-filtered beef tallow as the base for every product. Small-batch, handcrafted skincare with wildcrafted botanicals, zero synthetic preservatives.", url:`${SITE_URL}/about`, jsonLd:[organizationSchema(),webSiteSchema()] },
     "/faq": { title:`Tallow Skincare FAQ — Common Questions Answered | ${SITE_NAME}`, description:"Get answers to common questions about tallow skincare: Is tallow comedogenic? Is it safe for sensitive skin? How to store tallow products? Learn everything about grass-fed tallow moisturizers.", url:`${SITE_URL}/faq`, jsonLd:[organizationSchema(),webSiteSchema(),faqSchema()] },
+    "/cart": { title:`Your Cart | ${SITE_NAME}`, description:"Review your handcrafted tallow skincare items before checkout.", url:`${SITE_URL}/cart`, jsonLd:[organizationSchema()] },
   };
 
   if (staticPages[route]) {
@@ -121,7 +122,7 @@ function generateHead(route) {
 }
 
 function getRoutes() {
-  const routes = ["/","/products","/about","/faq"];
+  const routes = ["/","/products","/about","/faq","/cart"];
   if (PRODUCTS) { for (const p of PRODUCTS) routes.push(`/product/${p.handle}`); }
   return routes;
 }
