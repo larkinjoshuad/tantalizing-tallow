@@ -14,6 +14,7 @@ import ProductsPage from "./components/product/ProductsPage.jsx";
 import ProductDetail from "./components/product/ProductDetail.jsx";
 import AboutPage from "./components/pages/AboutPage.jsx";
 import FAQPage from "./components/pages/FAQPage.jsx";
+import CartPage from "./components/pages/CartPage.jsx";
 import { Routes, Route } from "react-router-dom";
 import { BRAND } from "./lib/constants.js";
 
@@ -55,6 +56,7 @@ export function render(url) {
               <Route path="/product/:handle" element={<ProductDetail />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/faq" element={<FAQPage />} />
+              <Route path="/cart" element={<CartPage />} />
               <Route path="/contact" element={<PlaceholderPage title="Contact" />} />
               <Route path="/blog" element={<PlaceholderPage title="Blog" />} />
               <Route path="*" element={<PlaceholderPage title="404 — Page Not Found" />} />

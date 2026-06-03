@@ -1,4 +1,5 @@
 import { X, ShoppingCart, Minus, Plus, Truck } from "lucide-react";
+import { Link } from "react-router-dom";
 import { BRAND, getProductImage } from "../../lib/constants";
 import { useCart } from "../../context/CartContext";
 
@@ -206,7 +207,22 @@ export default function CartDrawer() {
             >
               {checkoutLoading ? "Preparing checkout…" : "Checkout"}
             </button>
-            <p style={{ color: C.textMuted, fontSize: 12, textAlign: "center", margin: "12px 0 0" }}>
+            <Link
+              to="/cart"
+              onClick={() => setIsOpen(false)}
+              style={{
+                display: "block",
+                textAlign: "center",
+                color: C.textMuted,
+                fontSize: 13,
+                marginTop: 12,
+                textDecoration: "underline",
+                textDecorationColor: `${C.textMuted}55`,
+              }}
+            >
+              View full cart
+            </Link>
+            <p style={{ color: C.textMuted, fontSize: 12, textAlign: "center", margin: "8px 0 0" }}>
               Secure checkout powered by Shopify
             </p>
           </div>
