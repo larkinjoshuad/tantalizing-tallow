@@ -23,7 +23,28 @@ export default defineConfig([
       },
     },
     rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      // argsIgnorePattern covers capitalized destructured params (e.g.
+      // `({ icon: Icon }) => <Icon />`) — used in JSX, which base
+      // no-unused-vars can't see without eslint-plugin-react.
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]', argsIgnorePattern: '^[A-Z_]' }],
+    },
+  },
+  {
+    // Node contexts: serverless functions, build scripts, configs, tests
+    files: ['api/**/*.js', 'prerender.mjs', 'vite.config.js', 'vite.ssr.config.js', '**/*.test.{js,jsx}', 'vitest.setup.js'],
+    languageOptions: {
+      globals: { ...globals.node },
+    },
+  },
+  {
+    // Fast-refresh boundary exceptions:
+    // - CartContext intentionally exports the useCart hook alongside the
+    //   provider (standard React context pattern)
+    // - entry-server exports a render() function and is never hot-reloaded
+    //   (build-time SSR only)
+    files: ['src/context/CartContext.jsx', 'src/entry-server.jsx'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
     },
   },
 ])

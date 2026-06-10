@@ -35,11 +35,11 @@ const RESPONSES = {
   // ── Specific Products ──
   products: {
     blueTansy: {
-      text: "**Blue Tansy** is our bestselling face cream — azulene from blue tansy calms breakouts, redness, and inflammation. Great for sensitive and acne-prone skin. 4.9★ from 47 reviews.",
+      text: "**Blue Tansy** is our bestselling face cream — formulated with blue tansy to soothe the look of redness on sensitive and blemish-prone skin. 4.9★ from 47 reviews.",
       products: [1],
     },
     clarifying: {
-      text: "The **Clarifying Face Cream** is a lightweight, non-comedogenic formula for acne-prone and oily skin. Tea tree and niacinamide balance sebum without clogging pores. 4.8★.",
+      text: "The **Clarifying Face Cream** is a lightweight, low-comedogenic formula for blemish-prone and oily skin. Tea tree oil and Manuka honey 829+ support a balanced-looking complexion. 4.8★.",
       products: [2],
     },
     cleansingBalm: {
@@ -55,11 +55,11 @@ const RESPONSES = {
       products: [5],
     },
     frankManuka: {
-      text: "**Frankincense & Manuka Honey Face Cream** — 1122+ MGO Manuka honey for unmatched antibacterial healing, frankincense for cellular renewal. $40, 5.0★. Our most luxurious face cream.",
+      text: "**Frankincense & Manuka Honey Face Cream** — high-grade Manuka honey 1122+ paired with frankincense for deeply soothing, nourishing care. $40, 5.0★. Our most premium face cream.",
       products: [6],
     },
     frankVanilla: {
-      text: "**Frankincense & Vanilla Face Cream** — frankincense stimulates collagen while vanilla soothes. A daily ritual for graceful aging. $22, 4.8★.",
+      text: "**Frankincense & Vanilla Face Cream** — frankincense and vanilla-infused tallow create a comforting daily ritual that supports a smoother, softer-looking complexion. $22, 4.8★.",
       products: [7],
     },
     shimmer: {
@@ -67,7 +67,7 @@ const RESPONSES = {
       products: [8],
     },
     hairOil: {
-      text: "**Hair & Scalp Oil** — rosemary, castor oil, argan, and biotin nourish from root to tip. Promotes growth, reduces frizz, adds shine. $18, 4.6★.",
+      text: "**Hair & Scalp Oil** — castor oil, argan oil, Manuka honey, and rosemary nourish the scalp and condition hair from root to tip. Supports the appearance of thicker, shinier hair. $18, 4.6★.",
       products: [9],
     },
     hyaluronic: {
@@ -75,27 +75,23 @@ const RESPONSES = {
       products: [10],
     },
     sleepBalm: {
-      text: "**Lavender & Vanilla Magnesium Sleep Balm** — magnesium absorbs through skin to relax muscles. Lavender + vanilla create the ultimate bedtime ritual. From $18, 4.9★, fan favorite!",
+      text: "**Lavender & Vanilla Magnesium Sleep Balm** — magnesium chloride paired with calming lavender and warm vanilla creates the ultimate bedtime ritual. From $18, 4.9★, fan favorite!",
       products: [11],
     },
     luxe: {
-      text: "The **Luxe Face Cream** is our crown jewel — triple-filtered tallow, bakuchiol, squalane, frankincense, rose otto, and 24K gold flakes. $60, 5.0★. Our most premium offering.",
+      text: "The **Luxe Face Cream** is our crown jewel — grass-fed tallow, Manuka honey, bakuchiol, rosehip oil, tamanu oil, and sea buckthorn. $60, 5.0★. Our most premium offering.",
       products: [12],
     },
     lipBalm: {
-      text: "**Minted Vanilla Lip Balm** with Manuka honey — 102 reviews, 4.9★! Heals cracked lips, buttery smooth, never waxy. From $6.",
+      text: "**Minted Vanilla Lip Balm** with Manuka honey — 102 reviews, 4.9★! Softens dry lips, buttery smooth, never waxy. From $6.",
       products: [13],
     },
     turmeric: {
-      text: "**Orange Blossom & Turmeric Face Cream** brightens your complexion and fades dark spots. Vitamin C + turmeric extract even out skin tone. $20, 4.8★.",
+      text: "**Orange Blossom & Turmeric Face Cream** supports a brighter-looking complexion and a more even-looking tone with turmeric and orange blossom. $22, 4.8★.",
       products: [14],
     },
-    sunVeil: {
-      text: "**Sun Veil** — mineral-based sun protection in a tallow base. Non-nano zinc oxide, no white cast, no chemical filters. $15, 4.6★.",
-      products: [15],
-    },
     coffeeScrub: {
-      text: "**Vanilla Espresso Coffee Sugar Scrub** — coffee grounds exfoliate while caffeine boosts circulation. Turns your shower into a spa. $12, 4.8★.",
+      text: "**Vanilla Espresso Coffee Sugar Scrub** — espresso grounds and brown sugar gently exfoliate while grass-fed tallow and castor oil leave skin feeling soft. Turns your shower into a warm, spa-like ritual. $12, 4.8★.",
       products: [16],
     },
     fragranceOfMonth: {
@@ -103,7 +99,7 @@ const RESPONSES = {
       products: [17],
     },
     ruggedRevival: {
-      text: "**Rugged Revival — Men's Collection** — a rich, masculine face cream with Manuka honey 829 and vanilla-infused tallow. Post-shave healing, deep moisture, cologne-inspired scent. $20, 4.7★.",
+      text: "**Rugged Revival — Men's Collection** — a rich, masculine face cream with Manuka honey 829 and vanilla-infused tallow. Deeply conditioning post-shave, with a subtle cologne-inspired scent. $20, 4.7★.",
       products: [18],
     },
   },
@@ -111,34 +107,34 @@ const RESPONSES = {
   // ── Skin Concerns ──
   skinTypes: {
     acne: {
-      text: "For acne-prone skin, I'd recommend our **Blue Tansy** cream — blue tansy's azulene is a natural anti-inflammatory that calms breakouts without harsh chemicals. The **Clarifying Face Cream** is another excellent choice, formulated to balance sebum without clogging pores.",
+      text: "For blemish-prone skin, I'd recommend our **Blue Tansy** cream — blue tansy is known for soothing the look of redness on reactive, blemish-prone skin. The **Clarifying Face Cream** is another favorite, formulated for a balanced-looking complexion without a heavy feel.",
       products: [1, 2],
     },
     dry: {
-      text: "Dry skin loves tallow because it's the closest thing to our skin's natural sebum. I'd recommend our **Fragrance of the Month** body butter or **Vanilla Tallow Body Butter** for body and the **Frankincense & Vanilla Face Cream** for your face — frankincense stimulates collagen while deeply nourishing. For extreme dryness, the **Luxe Face Cream** is unmatched.",
+      text: "Dry skin loves tallow because it mirrors the lipids already in your skin. I'd recommend our **Fragrance of the Month** body butter or **Vanilla Tallow Body Butter** for body, and the **Frankincense & Vanilla Face Cream** for your face — rich, nourishing, and supportive of a smoother-looking complexion. For very dry skin, the **Luxe Face Cream** is unmatched.",
       products: [17, 7, 12],
     },
     sensitive: {
-      text: "Sensitive skin is exactly what tallow was made for. Our **Blue Tansy** line is specifically designed for reactive skin — it calms redness and inflammation. Start gentle, and your skin will thank you.",
+      text: "Sensitive skin is exactly what tallow was made for. Our **Blue Tansy** line is specifically designed for reactive skin — it soothes the look of redness on irritated complexions. Start gentle, and your skin will thank you.",
       products: [1],
     },
     aging: {
-      text: "For anti-aging, you want our powerhouses: **Frankincense & Manuka Honey Face Cream** (the 1122+ MGO Manuka is incredible for cellular renewal) or our **Luxe Face Cream** with bakuchiol, squalane, and 24K gold. Pair with the **Hyaluronic Acid Serum** underneath for maximum plumping.",
+      text: "For mature skin, our powerhouses are the **Frankincense & Manuka Honey Face Cream** (with high-grade Manuka 1122+ for deep nourishment) and the **Luxe Face Cream** featuring bakuchiol, rosehip, tamanu, and sea buckthorn for a smoother-looking complexion. Pair with the **Hyaluronic Acid Serum** underneath for a plumper look.",
       products: [6, 12, 10],
     },
     oily: {
-      text: "Even oily skin needs moisture — it's often overproducing oil because it's actually dehydrated. The **Clarifying Face Cream** balances sebum production naturally. Layer the **Hyaluronic Acid Serum** underneath for lightweight hydration.",
+      text: "Even oily skin needs hydration — often it overproduces oil because it's dehydrated. The **Clarifying Face Cream** supports a balanced-looking complexion without a heavy feel. Layer the **Hyaluronic Acid Serum** underneath for lightweight hydration.",
       products: [2, 10],
     },
     dull: {
-      text: "To brighten dull skin, the **Orange Blossom & Turmeric Face Cream** is your answer — turmeric fades dark spots while orange blossom revitalizes. Follow with the **Coffee Sugar Scrub** weekly to exfoliate and boost circulation.",
+      text: "To support a brighter look, the **Orange Blossom & Turmeric Face Cream** is a favorite — turmeric and orange blossom support a more even-looking tone. Follow with the **Coffee Sugar Scrub** weekly on body to exfoliate.",
       products: [14, 16],
     },
   },
 
-  // ── Skin Conditions (NEW) ──
+  // ── Skin Conditions ──
   skinConditions: {
-    text: "While we're not doctors, many customers with **eczema, psoriasis, and scarring** report great results with tallow — its biocompatible fatty acids support the skin barrier. Try **Blue Tansy** for inflammation or **Vanilla Body Butter** for gentle, full-body moisture. Always patch-test first!",
+    text: "We can't give medical advice — please talk to your dermatologist about specific conditions. What I can share: many customers with reactive skin love tallow because it's a gentle, nutrient-dense moisturizer that supports the skin barrier. **Blue Tansy** is our most-loved option for reactive skin, and **Vanilla Body Butter** is our simplest, most minimalist body moisturizer. Always patch-test first!",
     products: [1, 4, 17],
   },
 
@@ -150,28 +146,28 @@ const RESPONSES = {
   // ── Full Routines by Skin Type ──
   routines: {
     sensitive: {
-      text: "Here's your **full sensitive skin routine** — gentle, calming, zero irritants:\n\n☀️ **AM Routine:**\n1. **Cleansing Balm** ($12) — gentle cleanse without stripping\n2. **Hyaluronic Acid Serum** ($12) — lightweight hydration layer\n3. **Blue Tansy Face Cream** (from $20) — calms redness & inflammation\n4. **Sun Veil** ($15) — mineral SPF, no chemical filters\n\n🌙 **PM Routine:**\n1. **Cleansing Balm** — double-cleanse to remove sunscreen\n2. **Hyaluronic Acid Serum** — overnight hydration boost\n3. **Blue Tansy Face Cream** — repair while you sleep\n4. **Magnesium Sleep Balm** (from $18) — apply to wrists/temples for deep relaxation\n\n**Weekly:** Coffee Sugar Scrub ($12) on body only (skip face)\n\nTotal routine: ~$77 (qualifies for free shipping!)",
-      products: [3, 10, 1, 15, 11, 16],
+      text: "Here's your **full sensitive skin routine** — gentle, soothing, no harsh ingredients:\n\n☀️ **AM Routine:**\n1. **Cleansing Balm** ($12) — gentle cleanse without stripping\n2. **Hyaluronic Acid Serum** ($12) — lightweight hydration layer\n3. **Blue Tansy Face Cream** (from $20) — soothes the look of redness on reactive skin\n4. *Add a broad-spectrum sunscreen of your choice (we don't currently offer one)*\n\n🌙 **PM Routine:**\n1. **Cleansing Balm** — thorough cleanse\n2. **Hyaluronic Acid Serum** — overnight hydration boost\n3. **Blue Tansy Face Cream** — nourishment while you sleep\n4. **Magnesium Sleep Balm** (from $18) — apply to wrists/temples for a relaxing wind-down\n\n**Weekly:** Coffee Sugar Scrub ($12) on body only (skip face)\n\nTotal routine: ~$62 (add a few products to qualify for free shipping at $75+)",
+      products: [3, 10, 1, 11, 16],
     },
     dry: {
-      text: "Here's your **full dry skin routine** — maximum hydration and barrier repair:\n\n☀️ **AM Routine:**\n1. **Cleansing Balm** ($12) — melts away buildup without stripping moisture\n2. **Hyaluronic Acid Serum** ($12) — pulls moisture deep into skin\n3. **Frankincense & Vanilla Face Cream** ($22) — rich daily nourishment\n4. **Sun Veil** ($15) — protective moisture layer with zinc\n\n🌙 **PM Routine:**\n1. **Cleansing Balm** — gentle double-cleanse\n2. **Hyaluronic Acid Serum** — overnight hydration\n3. **Frankincense & Manuka Honey Face Cream** ($40) — deep repair with 1122+ Manuka\n4. **Vanilla Tallow Body Butter** (from $6) — full body barrier seal\n\n**Weekly:** Coffee Sugar Scrub ($12) to slough dead skin\n**Lips:** Minted Vanilla Lip Balm (from $6)\n\nTotal routine: ~$125 (free shipping included!)",
-      products: [3, 10, 7, 15, 6, 4, 16, 13],
+      text: "Here's your **full dry skin routine** — deep hydration and nourishment:\n\n☀️ **AM Routine:**\n1. **Cleansing Balm** ($12) — melts away buildup without stripping moisture\n2. **Hyaluronic Acid Serum** ($12) — draws moisture into skin\n3. **Frankincense & Vanilla Face Cream** ($22) — rich daily nourishment\n4. *Add a broad-spectrum sunscreen of your choice*\n\n🌙 **PM Routine:**\n1. **Cleansing Balm** — gentle double-cleanse\n2. **Hyaluronic Acid Serum** — overnight hydration\n3. **Frankincense & Manuka Honey Face Cream** ($40) — premium nourishment with Manuka 1122+\n4. **Vanilla Tallow Body Butter** (from $6) — full body moisture\n\n**Weekly:** Coffee Sugar Scrub ($12)\n**Lips:** Minted Vanilla Lip Balm (from $6)\n\nTotal routine: ~$110 (free shipping included!)",
+      products: [3, 10, 7, 6, 4, 16, 13],
     },
     acne: {
-      text: "Here's your **full acne-prone skin routine** — clear skin without stripping:\n\n☀️ **AM Routine:**\n1. **Cleansing Balm** ($12) — removes excess oil gently\n2. **Hyaluronic Acid Serum** ($12) — lightweight hydration (won't clog pores)\n3. **Clarifying Face Cream** ($20) — tea tree + Manuka 829+ to calm breakouts\n4. **Sun Veil** ($15) — mineral SPF, non-comedogenic\n\n🌙 **PM Routine:**\n1. **Cleansing Balm** — double-cleanse to clear pores\n2. **Hyaluronic Acid Serum** — repair hydration\n3. **Blue Tansy Face Cream** (from $20) — anti-inflammatory overnight recovery\n\n**Weekly:** Coffee Sugar Scrub ($12) on body, gentle on face\n\nTotal routine: ~$91 (free shipping!)",
-      products: [3, 10, 2, 15, 1, 16],
+      text: "Here's your **full blemish-prone skin routine** — balanced skin without stripping:\n\n☀️ **AM Routine:**\n1. **Cleansing Balm** ($12) — removes excess oil gently\n2. **Hyaluronic Acid Serum** ($12) — lightweight hydration (low-comedogenic)\n3. **Clarifying Face Cream** ($20) — tea tree + Manuka 829+ for a balanced complexion\n4. *Add a broad-spectrum sunscreen of your choice*\n\n🌙 **PM Routine:**\n1. **Cleansing Balm** — thorough cleanse\n2. **Hyaluronic Acid Serum** — overnight hydration\n3. **Blue Tansy Face Cream** (from $20) — soothes the look of reactive, blemish-prone skin overnight\n\n**Weekly:** Coffee Sugar Scrub ($12) on body, skip face\n\nTotal routine: ~$76 (qualifies for free shipping!)",
+      products: [3, 10, 2, 1, 16],
     },
     aging: {
-      text: "Here's your **full anti-aging routine** — collagen support and radiance:\n\n☀️ **AM Routine:**\n1. **Cleansing Balm** ($12) — preserve moisture barrier while cleansing\n2. **Hyaluronic Acid Serum** ($12) — plumps fine lines with deep hydration\n3. **Frankincense & Vanilla Face Cream** ($22) — collagen stimulation + daily nourishment\n4. **Sun Veil** ($15) — UV protection is #1 anti-aging step\n\n🌙 **PM Routine:**\n1. **Cleansing Balm** — gentle double-cleanse\n2. **Hyaluronic Acid Serum** — overnight plumping\n3. **Luxe Face Cream** ($60) — bakuchiol (natural retinol alternative) + 24K gold\n4. **Magnesium Sleep Balm** (from $18) — relaxation + skin repair\n\n**Weekly:** Coffee Sugar Scrub ($12) for cell turnover\n**Lips:** Minted Vanilla Lip Balm (from $6)\n\nTotal routine: ~$157 (free shipping!)",
-      products: [3, 10, 7, 15, 12, 11, 16, 13],
+      text: "Here's your **full routine for mature skin** — nourishment and a more radiant look:\n\n☀️ **AM Routine:**\n1. **Cleansing Balm** ($12) — preserves moisture while cleansing\n2. **Hyaluronic Acid Serum** ($12) — supports a plumper look\n3. **Frankincense & Vanilla Face Cream** ($22) — daily nourishment with Manuka 829+\n4. *Add a broad-spectrum sunscreen of your choice — daily SPF is the single biggest support for mature skin*\n\n🌙 **PM Routine:**\n1. **Cleansing Balm** — gentle double-cleanse\n2. **Hyaluronic Acid Serum** — overnight hydration\n3. **Luxe Face Cream** ($60) — bakuchiol, rosehip, tamanu, sea buckthorn for a smoother-looking complexion\n4. **Magnesium Sleep Balm** (from $18) — relaxing wind-down\n\n**Weekly:** Coffee Sugar Scrub ($12)\n**Lips:** Minted Vanilla Lip Balm (from $6)\n\nTotal routine: ~$142 (free shipping!)",
+      products: [3, 10, 7, 12, 11, 16, 13],
     },
     oily: {
-      text: "Here's your **full oily skin routine** — balance sebum without stripping:\n\n☀️ **AM Routine:**\n1. **Cleansing Balm** ($12) — oil-cleansing method actually reduces oiliness\n2. **Hyaluronic Acid Serum** ($12) — lightweight hydration your skin craves\n3. **Clarifying Face Cream** ($20) — balances sebum production naturally\n4. **Sun Veil** ($15) — mineral SPF, no greasy residue\n\n🌙 **PM Routine:**\n1. **Cleansing Balm** — deep cleanse without disrupting oil balance\n2. **Hyaluronic Acid Serum** — overnight hydration\n3. **Blue Tansy Face Cream** (from $20) — calms any inflammation\n\n**Weekly:** Coffee Sugar Scrub ($12) to keep pores clear\n\nTotal routine: ~$91 (free shipping!)",
-      products: [3, 10, 2, 15, 1, 16],
+      text: "Here's your **full oily skin routine** — balanced without stripping:\n\n☀️ **AM Routine:**\n1. **Cleansing Balm** ($12) — oil-cleansing supports balanced-looking skin\n2. **Hyaluronic Acid Serum** ($12) — lightweight hydration your skin craves\n3. **Clarifying Face Cream** ($20) — supports a balanced complexion\n4. *Add a broad-spectrum sunscreen of your choice*\n\n🌙 **PM Routine:**\n1. **Cleansing Balm** — thorough cleanse\n2. **Hyaluronic Acid Serum** — overnight hydration\n3. **Blue Tansy Face Cream** (from $20) — soothes the look of redness on reactive skin\n\n**Weekly:** Coffee Sugar Scrub ($12) on body\n\nTotal routine: ~$76 (qualifies for free shipping!)",
+      products: [3, 10, 2, 1, 16],
     },
     general: {
-      text: "Here's your **full glow routine** — the ultimate Tantalizing Tallow experience:\n\n☀️ **AM Routine:**\n1. **Cleansing Balm** ($12) — fresh, clean canvas\n2. **Hyaluronic Acid Serum** ($12) — base hydration layer\n3. **Orange Blossom & Turmeric Face Cream** ($20) — brightening + glow\n4. **Sun Veil** ($15) — daily protection\n\n🌙 **PM Routine:**\n1. **Cleansing Balm** — double-cleanse\n2. **Hyaluronic Acid Serum** — overnight hydration\n3. **Frankincense & Vanilla Face Cream** ($22) — deep nourishment\n4. **Magnesium Sleep Balm** (from $18) — relaxation ritual\n\n**Body:** Summer Shimmer Body Butter ($24) for events, Vanilla Tallow (from $6) for daily\n**Weekly:** Coffee Sugar Scrub ($12)\n**Lips:** Minted Vanilla Lip Balm (from $6)\n\nTotal routine: ~$147 (free shipping!)",
-      products: [3, 10, 14, 15, 7, 11, 8, 4, 16, 13],
+      text: "Here's your **full glow routine** — the complete Tantalizing Tallow experience:\n\n☀️ **AM Routine:**\n1. **Cleansing Balm** ($12) — fresh, clean canvas\n2. **Hyaluronic Acid Serum** ($12) — base hydration layer\n3. **Orange Blossom & Turmeric Face Cream** ($22) — supports a brighter-looking complexion\n4. *Add a broad-spectrum sunscreen of your choice*\n\n🌙 **PM Routine:**\n1. **Cleansing Balm** — double-cleanse\n2. **Hyaluronic Acid Serum** — overnight hydration\n3. **Frankincense & Vanilla Face Cream** ($22) — rich nourishment\n4. **Magnesium Sleep Balm** (from $18) — relaxation ritual\n\n**Body:** Summer Shimmer Body Butter ($24) for events, Vanilla Tallow (from $6) for daily\n**Weekly:** Coffee Sugar Scrub ($12)\n**Lips:** Minted Vanilla Lip Balm (from $6)\n\nTotal routine: ~$134 (free shipping!)",
+      products: [3, 10, 14, 7, 11, 8, 4, 16, 13],
     },
   },
 
@@ -207,7 +203,7 @@ const RESPONSES = {
 
   // ── Comparisons ──
   comparison: {
-    text: "I focus on Tantalizing Tallow products specifically! Here's what makes us special: our tallow is grass-fed and triple-filtered, with a fatty acid profile nearly identical to human sebum — so it absorbs deeply and delivers vitamins A, D, E, K directly. We formulate with premium actives like 1122+ MGO Manuka honey, bakuchiol, and blue tansy. What skin concern can I help match to a product?",
+    text: "I focus on Tantalizing Tallow products specifically! Here's what makes us special: our tallow is grass-fed and triple-filtered, with a fatty acid profile that mirrors human skin lipids — so it absorbs efficiently and delivers vitamins A, D, E, and K. We formulate with premium ingredients like high-grade Manuka honey 1122+, bakuchiol, and blue tansy. What skin concern can I help match to a product?",
     products: [6, 12],
   },
 
@@ -236,24 +232,24 @@ const RESPONSES = {
   },
 
   mens: {
-    text: "For men's skincare, our **Rugged Revival** collection is built with cedarwood, sandalwood, and black pepper — effective without any floral notes. Great post-shave healing too.",
+    text: "For men's skincare, our **Rugged Revival** face cream uses vanilla-infused tallow, Manuka honey 829, and castor oil for a rich, conditioning daily moisturizer with a subtle cologne-inspired scent. Deeply nourishing post-shave too.",
     products: [18],
   },
   lips: {
-    text: "Our **Minted Vanilla Lip Balm** with Manuka honey is a customer favorite — over 100 reviews! It heals cracked lips and stays buttery smooth, never waxy.",
+    text: "Our **Minted Vanilla Lip Balm** with Manuka honey is a customer favorite — over 100 reviews! It softens dry lips and stays buttery smooth, never waxy.",
     products: [13],
   },
   hair: {
-    text: "The **Hair & Scalp Oil** promotes growth with rosemary and castor oil in a tallow base. It strengthens follicles, reduces frizz, and adds shine.",
+    text: "The **Hair & Scalp Oil** features castor oil, argan oil, Manuka honey, and rosemary in a tallow base. It conditions the scalp and supports the appearance of shinier, fuller-looking hair.",
     products: [9],
   },
   sleep: {
-    text: "The **Lavender & Vanilla Magnesium Sleep Balm** is incredible — magnesium absorbs through skin to relax muscles while lavender calms the mind. Apply to feet, wrists, or temples before bed.",
+    text: "The **Lavender & Vanilla Magnesium Sleep Balm** is a fan favorite — magnesium chloride paired with lavender and vanilla for a calming wind-down ritual. Apply to feet, wrists, or temples before bed.",
     products: [11],
   },
   sun: {
-    text: "Our **Sun Veil** uses non-nano zinc oxide in a tallow base for mineral sun protection without the white cast. No chemical filters, just clean protection that moisturizes while it shields.",
-    products: [15],
+    text: "We're currently reformulating our daily outdoor balm and it's not available right now. For sun protection, we recommend a broad-spectrum SPF from a trusted source. Once our new formula is ready, we'll announce it on email and social!",
+    products: [],
   },
   popular: {
     text: "Our most popular picks: **Minted Vanilla Lip Balm** (102 reviews!), **Vanilla Tallow Body Butter** (best value), **Lavender & Vanilla Magnesium Sleep Balm** (fan favorite), and **Blue Tansy** (bestseller for face). Any of these make great gifts!",
@@ -296,7 +292,6 @@ const INTENT_MAP = [
   { pattern: /rugged|revival/i, key: "products.ruggedRevival" },
   { pattern: /sleep balm|magnesium balm/i, key: "products.sleepBalm" },
   { pattern: /hyaluronic|\bserum\b(?!.*before|\bafter\b)/i, key: "products.hyaluronic" },
-  { pattern: /sun veil/i, key: "products.sunVeil" },
   { pattern: /hair oil|scalp oil/i, key: "products.hairOil" },
   { pattern: /\blip balm\b|minted vanilla/i, key: "products.lipBalm" },
   { pattern: /body butter|vanilla.*butter/i, key: "products.vanillaBodyButter" },

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight, Sparkles, Leaf, Heart, Truck, Shield } from "lucide-react";
 import { BRAND, PRODUCTS } from "../../lib/constants";
@@ -7,14 +7,14 @@ import ProductCard from "../product/ProductCard";
 
 export default function HomePage() {
   const C = BRAND.colors;
-  const featured = PRODUCTS.filter((p) => p.badge);
+  // Memoized so the effect dep is referentially stable across renders
+  const featured = useMemo(() => PRODUCTS.filter((p) => p.badge), []);
 
   useEffect(() => {
     setMeta(PAGE_SEO.home);
     setBreadcrumbSchema([{ name: "Home", url: "/" }]);
     setItemListSchema(featured);
-    return () => {};
-  }, []);
+  }, [featured]);
 
   return (
     <>

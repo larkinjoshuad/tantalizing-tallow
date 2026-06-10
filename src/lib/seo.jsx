@@ -7,7 +7,7 @@
 
 const SITE_URL = "https://www.tantalizingtallow.com";
 const SITE_NAME = "Tantalizing Tallow";
-const DEFAULT_IMAGE = "https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_e92dfc5c-6957-496d-bc61-457818162326.png";
+const DEFAULT_IMAGE = "https://www.tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_e92dfc5c-6957-496d-bc61-457818162326.png";
 const DEFAULT_DESCRIPTION = "Handcrafted tallow skincare made from grass-fed, triple-filtered beef tallow and wildcrafted botanicals. Face creams, body butters, serums, and more — 100% natural, preservative-free, whipped by hand.";
 
 // ─── Meta Tag Manager ───
@@ -87,11 +87,26 @@ export function setOrganizationSchema() {
     url: SITE_URL,
     logo: `${SITE_URL}/logo.jpg`,
     description: DEFAULT_DESCRIPTION,
-    foundingDate: "2024",
-    sameAs: [],
+    foundingDate: "2024-09",
+    founder: {
+      "@type": "Person",
+      name: "Sarah Larkin",
+      jobTitle: "Founder",
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Tehachapi",
+      addressRegion: "CA",
+      addressCountry: "US",
+    },
+    sameAs: [
+      "https://instagram.com/tantalizingtallow",
+      "https://tiktok.com/@tantalizingtallow",
+    ],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
+      email: "sarahjlarkin21@gmail.com",
       availableLanguage: "English",
     },
   });
@@ -263,7 +278,7 @@ export const PAGE_SEO = {
   products: {
     title: `Shop All Tallow Skincare Products | ${SITE_NAME}`,
     description:
-      "Browse 18+ handcrafted tallow skincare products: face creams, body butters, serums, cleansing balms, hair oils, lip balms, and sun protection. All natural, grass-fed tallow, no preservatives. Free shipping on $75+.",
+      "Browse our handcrafted tallow skincare: face creams, body butters, serums, cleansing balms, hair oils, and lip balms. All natural, grass-fed tallow, no synthetic preservatives. Free shipping on $75+.",
     url: `${SITE_URL}/products`,
   },
   about: {
@@ -277,5 +292,34 @@ export const PAGE_SEO = {
     description:
       "Get answers to common questions about tallow skincare: Is tallow comedogenic? Is it safe for sensitive skin? How to store tallow products? Learn everything about grass-fed tallow moisturizers.",
     url: `${SITE_URL}/faq`,
+  },
+  contact: {
+    title: `Contact Tantalizing Tallow | ${SITE_NAME}`,
+    description:
+      "Get in touch with Sarah Larkin and the Tantalizing Tallow team. Questions about orders, ingredients, wholesale, or anything else — we read every email.",
+    url: `${SITE_URL}/contact`,
+  },
+  privacy: {
+    title: `Privacy Policy | ${SITE_NAME}`,
+    description:
+      "How Tantalizing Tallow collects, uses, and protects your information. Plain-language privacy policy for our small-batch skincare shop.",
+    url: `${SITE_URL}/privacy`,
+  },
+  terms: {
+    title: `Terms of Service | ${SITE_NAME}`,
+    description:
+      "Terms of service for tantalizingtallow.com. Cosmetic product disclaimers, ordering, intellectual property, and governing law.",
+    url: `${SITE_URL}/terms`,
+  },
+  refunds: {
+    title: `Refund & Returns Policy | ${SITE_NAME}`,
+    description:
+      "Our 30-day satisfaction policy, shipping schedule, and how to handle damaged or lost orders. Handmade with care in Tehachapi, CA.",
+    url: `${SITE_URL}/refunds`,
+  },
+  cart: {
+    title: `Your Cart | ${SITE_NAME}`,
+    description: "Review your handcrafted tallow skincare items before checkout.",
+    url: `${SITE_URL}/cart`,
   },
 };

@@ -64,8 +64,7 @@ export default function Footer() {
               title: "Help",
               links: [
                 { label: "FAQ", to: "/faq" },
-                { label: "Shipping Info", to: "/faq" },
-                { label: "Returns", to: "/faq" },
+                { label: "Refunds & Shipping", to: "/refunds" },
                 { label: "Contact Us", to: "/contact" },
               ],
             },
@@ -73,8 +72,6 @@ export default function Footer() {
               title: "Company",
               links: [
                 { label: "Our Story", to: "/about" },
-                { label: "Ingredients", to: "/about" },
-                { label: "Blog", to: "/blog" },
                 { label: "Wholesale", to: "/contact" },
               ],
             },
@@ -121,23 +118,26 @@ export default function Footer() {
           }}
         >
           <span style={{ color: C.textMuted, fontSize: 13 }}>
-            &copy; 2026 TantalizingTallow. Powered by Shopify.
+            &copy; 2026 Tantalizing Tallow. Checkout secured by Shopify.
           </span>
           <div style={{ display: "flex", gap: 12 }}>
-            {["Privacy Policy", "Terms of Service", "Refund Policy"].map(
-              (link) => (
-                <span
-                  key={link}
-                  style={{
-                    color: C.textMuted,
-                    fontSize: 12,
-                    cursor: "pointer",
-                  }}
-                >
-                  {link}
-                </span>
-              )
-            )}
+            {[
+              { label: "Privacy Policy", to: "/privacy" },
+              { label: "Terms of Service", to: "/terms" },
+              { label: "Refund Policy", to: "/refunds" },
+            ].map((link) => (
+              <Link
+                key={link.label}
+                to={link.to}
+                style={{
+                  color: C.textMuted,
+                  fontSize: 12,
+                  textDecoration: "none",
+                }}
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

@@ -23,6 +23,22 @@ export default function TallowExpertChat() {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isTyping]);
 
+  // Listen for "tallow:ask" custom events dispatched from the header banner
+  // chips. Open the panel if it's closed, then send the question.
+  // Ref keeps send() current without re-registering the listener every render.
+  const sendRef = useRef(null);
+  useEffect(() => {
+    const handler = (e) => {
+      const q = e.detail?.question;
+      if (!q || typeof q !== "string") return;
+      setIsOpen(true);
+      // Slight delay so the panel mounts before we trigger send
+      setTimeout(() => sendRef.current?.(q), 60);
+    };
+    window.addEventListener("tallow:ask", handler);
+    return () => window.removeEventListener("tallow:ask", handler);
+  }, []);
+
   const send = useCallback(
     async (text) => {
       const msg = (text || input).trim();
@@ -68,6 +84,11 @@ export default function TallowExpertChat() {
     },
     [input, messages]
   );
+
+  // Keep the latest send() accessible to the window event listener
+  useEffect(() => {
+    sendRef.current = send;
+  }, [send]);
 
   const C = BRAND.colors;
 
