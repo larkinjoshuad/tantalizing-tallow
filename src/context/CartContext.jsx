@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback } from "react";
+import { createContext, useContext, useState, useCallback, useEffect } from "react";
 import {
   createCart, addCartLines, getVariantId, buildShopifyCartUrl,
 } from "../lib/shopify";
@@ -11,6 +11,18 @@ export function CartProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false);
   const [flash, setFlash] = useState(false);
   const [checkoutLoading, setCheckoutLoading] = useState(false);
+
+  // If the user navigates to checkout and comes back via the browser's
+  // back/forward cache, the page is restored with checkoutLoading still
+  // true — the button would be stuck on "Preparing checkout…" forever.
+  // pageshow with event.persisted fires exactly on bfcache restores.
+  useEffect(() => {
+    const onPageShow = (e) => {
+      if (e.persisted) setCheckoutLoading(false);
+    };
+    window.addEventListener("pageshow", onPageShow);
+    return () => window.removeEventListener("pageshow", onPageShow);
+  }, []);
 
   const triggerFlash = () => {
     setFlash(true);

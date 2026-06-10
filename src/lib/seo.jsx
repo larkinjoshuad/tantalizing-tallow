@@ -317,4 +317,9 @@ export const PAGE_SEO = {
       "Our 30-day satisfaction policy, shipping schedule, and how to handle damaged or lost orders. Handmade with care in Tehachapi, CA.",
     url: `${SITE_URL}/refunds`,
   },
+  cart: {
+    title: `Your Cart | ${SITE_NAME}`,
+    description: "Review your handcrafted tallow skincare items before checkout.",
+    url: `${SITE_URL}/cart`,
+  },
 };

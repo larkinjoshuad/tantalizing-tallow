@@ -58,6 +58,8 @@ function setCorsHeaders(req, res) {
 
 export default async function handler(req, res) {
   setCorsHeaders(req, res);
+  // Chat responses are per-user and must never be cached by intermediaries
+  res.setHeader("Cache-Control", "no-store");
 
   if (req.method === "OPTIONS") {
     return res.status(204).end();
@@ -99,14 +101,17 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Invalid history" });
     }
 
-    // Build conversation history (last 6 turns max to control token usage)
+    // Build conversation history (last 6 turns max to control token usage).
+    // Each turn's text is capped at 1000 chars — same limit as the live
+    // message — so a crafted history can't smuggle megabytes of input
+    // tokens past the message-length check.
     const conversationMessages = [];
     const recentHistory = history.slice(-6);
     for (const turn of recentHistory) {
       if (!turn || typeof turn.text !== "string") continue;
       conversationMessages.push({
         role: turn.role === "ai" ? "assistant" : "user",
-        content: turn.text,
+        content: turn.text.slice(0, 1000),
       });
     }
     conversationMessages.push({ role: "user", content: message });

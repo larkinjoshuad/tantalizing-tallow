@@ -66,17 +66,24 @@ export function checkRateLimit(ip) {
 
 /**
  * Extract the client IP from a Vercel request.
- * Prefers x-forwarded-for (Vercel sets this), falls back to x-real-ip.
- * x-forwarded-for may be a comma-separated list; the leftmost entry is the
- * original client.
+ *
+ * SECURITY: prefer x-real-ip. Vercel sets it from the actual TCP connection
+ * and strips any client-supplied value, so it can't be spoofed. The leftmost
+ * x-forwarded-for entry, by contrast, can be attacker-controlled on setups
+ * where an upstream proxy appends rather than replaces — using it first
+ * would let an attacker rotate fake IPs to bypass the rate limit entirely.
+ * XFF is kept only as a fallback for non-Vercel local dev.
  */
 export function getClientIp(req) {
+  const xri = req.headers["x-real-ip"];
+  if (xri) {
+    const real = Array.isArray(xri) ? xri[0] : xri;
+    if (real) return real.trim();
+  }
   const xff = req.headers["x-forwarded-for"];
   if (xff) {
     const first = (Array.isArray(xff) ? xff[0] : xff).split(",")[0].trim();
     if (first) return first;
   }
-  const xri = req.headers["x-real-ip"];
-  if (xri) return Array.isArray(xri) ? xri[0] : xri;
   return null;
 }

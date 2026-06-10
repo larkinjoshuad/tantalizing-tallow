@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { BRAND } from "../../lib/constants";
 import { setMeta, setBreadcrumbSchema, PAGE_SEO } from "../../lib/seo";
-import { Mail, Sparkles, MessageCircle, MapPin, Clock } from "lucide-react";
+import { Mail, Instagram, MessageCircle, MapPin, Clock } from "lucide-react";
 
 const CONTACT_EMAIL = "sarahjlarkin21@gmail.com";
 const INSTAGRAM_HANDLE = "tantalizingtallow";
@@ -201,8 +201,8 @@ export default function ContactPage() {
               fontWeight: 600,
             }}
           >
-            <Sparkles size={16} color={C.gold} />
-            Instagram @{INSTAGRAM_HANDLE}
+            <Instagram size={16} color={C.gold} />
+            @{INSTAGRAM_HANDLE}
           </a>
           <a
             href={`https://tiktok.com/@${TIKTOK_HANDLE}`}

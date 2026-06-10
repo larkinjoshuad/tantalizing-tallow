@@ -31,7 +31,6 @@ jobs:
 
       - name: Lint
         run: npm run lint
-        continue-on-error: true # current lint baseline has pre-existing errors — fix in a follow-up
 
       - name: Test
         run: npm test
@@ -42,5 +41,8 @@ jobs:
       - name: Verify prerender output
         run: |
           test -f dist/index.html
-          test -f dist/404.html || echo "404.html not generated (expected only after PR #5 merges)"
-          test -f dist/sitemap.xml || test -f dist/products/index.html
+          test -f dist/404.html
+          test -f dist/sitemap.xml
+          test -f dist/products/index.html
+          test -f dist/cart/index.html
+          test -f dist/contact/index.html
