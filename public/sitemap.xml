@@ -172,15 +172,7 @@
     </image:image>
   </url>
 
-  <url>
-    <loc>https://www.tantalizingtallow.com/product/tantalizingtallow-sun-veil</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_f4670cee-37e0-4f1d-907b-eeac274e66ed.png</image:loc>
-      <image:title>Sun Veil Natural Tallow Sunscreen</image:title>
-    </image:image>
-  </url>
+  <!-- Sun Veil URL removed from sitemap — product pulled pending reformulation. See TODO_SUNVEIL.md -->
 
   <url>
     <loc>https://www.tantalizingtallow.com/product/espresso-face-body-scrub</loc>

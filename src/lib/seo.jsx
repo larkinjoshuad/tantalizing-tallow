@@ -263,7 +263,7 @@ export const PAGE_SEO = {
   products: {
     title: `Shop All Tallow Skincare Products | ${SITE_NAME}`,
     description:
-      "Browse 18+ handcrafted tallow skincare products: face creams, body butters, serums, cleansing balms, hair oils, lip balms, and sun protection. All natural, grass-fed tallow, no preservatives. Free shipping on $75+.",
+      "Browse our handcrafted tallow skincare: face creams, body butters, serums, cleansing balms, hair oils, and lip balms. All natural, grass-fed tallow, no synthetic preservatives. Free shipping on $75+.",
     url: `${SITE_URL}/products`,
   },
   about: {
