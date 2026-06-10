@@ -10,7 +10,7 @@ import { PRODUCTS } from "./_products-data.js";
 
 const SITE_URL = "https://www.tantalizingtallow.com";
 const SITE_NAME = "Tantalizing Tallow";
-const DEFAULT_IMAGE = "https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_e92dfc5c-6957-496d-bc61-457818162326.png";
+const DEFAULT_IMAGE = "https://www.tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_e92dfc5c-6957-496d-bc61-457818162326.png";
 const DEFAULT_DESC = "Handcrafted tallow skincare made from grass-fed, triple-filtered beef tallow and wildcrafted botanicals. 100% natural, preservative-free, whipped by hand.";
 
 export default function handler(req, res) {

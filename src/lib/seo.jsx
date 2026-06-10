@@ -7,7 +7,7 @@
 
 const SITE_URL = "https://www.tantalizingtallow.com";
 const SITE_NAME = "Tantalizing Tallow";
-const DEFAULT_IMAGE = "https://tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_e92dfc5c-6957-496d-bc61-457818162326.png";
+const DEFAULT_IMAGE = "https://www.tantalizingtallow.com/cdn/shop/files/rn-image_picker_lib_temp_e92dfc5c-6957-496d-bc61-457818162326.png";
 const DEFAULT_DESCRIPTION = "Handcrafted tallow skincare made from grass-fed, triple-filtered beef tallow and wildcrafted botanicals. Face creams, body butters, serums, and more — 100% natural, preservative-free, whipped by hand.";
 
 // ─── Meta Tag Manager ───
