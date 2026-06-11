@@ -245,6 +245,25 @@ export function getVariantId(handle, price) {
 }
 
 /**
+ * Reverse lookup: numeric variant ID → { handle, price }.
+ * Used by CartPage to restore items when a Shopify cart-permalink redirect
+ * bounces back to our domain as /cart/NUMERIC_ID:QTY. Requires the variant
+ * map to be loaded (call loadVariantMap() first).
+ */
+export function findHandleByVariantNumericId(numericId) {
+  if (!_variantMap) return null;
+  const wanted = String(numericId);
+  for (const [handle, variants] of Object.entries(_variantMap)) {
+    for (const v of variants) {
+      if (v.id && v.id.split("/").pop() === wanted) {
+        return { handle, price: v.price };
+      }
+    }
+  }
+  return null;
+}
+
+/**
  * Build a Shopify /cart permalink from items array.
  * Format: /cart/NUMERIC_VARIANT_ID:QTY,NUMERIC_VARIANT_ID:QTY
  * This works even without API cart creation.

@@ -5,12 +5,55 @@ import {
 
 const CartContext = createContext(null);
 
+// ─── Cart persistence ───
+// The cart previously lived only in React memory, so ANY full page load —
+// a refresh, or the checkout redirect bouncing back to our domain — wiped
+// it and the customer saw "Your cart is empty". Persist to localStorage.
+const CART_STORAGE_KEY = "tt_cart_v1";
+
+function loadPersistedCart() {
+  // SSR guard: entry-server renders this provider in Node at build time
+  if (typeof localStorage === "undefined") return [];
+  try {
+    const raw = localStorage.getItem(CART_STORAGE_KEY);
+    if (!raw) return [];
+    const arr = JSON.parse(raw);
+    if (!Array.isArray(arr)) return [];
+    // Sanitize: only keep well-formed entries; cap qty and list length so a
+    // tampered localStorage value can't produce absurd carts
+    return arr
+      .filter(
+        (i) =>
+          i &&
+          typeof i.handle === "string" &&
+          typeof i.price === "number" &&
+          Number.isFinite(i.qty) &&
+          i.qty > 0
+      )
+      .map((i) => ({ ...i, qty: Math.min(99, Math.floor(i.qty)) }))
+      .slice(0, 50);
+  } catch {
+    return [];
+  }
+}
+
 export function CartProvider({ children }) {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(loadPersistedCart);
   const [shopifyCart, setShopifyCart] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [flash, setFlash] = useState(false);
   const [checkoutLoading, setCheckoutLoading] = useState(false);
+
+  // Persist on every cart change (quota errors and private-mode failures
+  // are non-fatal — the cart just won't survive a reload)
+  useEffect(() => {
+    if (typeof localStorage === "undefined") return;
+    try {
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
+    } catch {
+      /* ignore */
+    }
+  }, [items]);
 
   // If the user navigates to checkout and comes back via the browser's
   // back/forward cache, the page is restored with checkoutLoading still

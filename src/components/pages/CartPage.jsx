@@ -1,13 +1,17 @@
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Minus, Plus, ShoppingCart, Truck, ArrowLeft, ExternalLink } from "lucide-react";
-import { BRAND, getProductImage } from "../../lib/constants";
+import { BRAND, PRODUCTS, getProductImage } from "../../lib/constants";
 import { useCart } from "../../context/CartContext";
 import { setMeta, setBreadcrumbSchema, PAGE_SEO } from "../../lib/seo";
+import { parseCartPermalinkPath } from "../../lib/cart-url";
+import { loadVariantMap, findHandleByVariantNumericId } from "../../lib/shopify";
 
 export default function CartPage() {
   const C = BRAND.colors;
-  const { items, updateQty, removeItem, subtotal, checkout, checkoutLoading } = useCart();
+  const { items, addItem, updateQty, removeItem, subtotal, checkout, checkoutLoading } = useCart();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const freeShip = subtotal >= BRAND.freeShipMin;
   const remaining = Math.max(0, BRAND.freeShipMin - subtotal);
@@ -24,6 +28,41 @@ export default function CartPage() {
       { name: "Cart" },
     ]);
   }, []);
+
+  // ─── Permalink bounce recovery ───
+  // If Shopify's primary-domain redirect bounced a cart permalink back to
+  // us (/cart/52395634262380:1), restore those items into the local cart
+  // instead of showing an empty page, then clean the URL to /cart.
+  // Items already in the cart (by handle) are skipped so the persisted
+  // cart doesn't get double-counted.
+  const itemsRef = useRef(items);
+  useEffect(() => {
+    itemsRef.current = items;
+  }, [items]);
+  const recoveredRef = useRef(false);
+  useEffect(() => {
+    if (recoveredRef.current) return;
+    const entries = parseCartPermalinkPath(location.pathname);
+    if (entries.length === 0) return;
+    recoveredRef.current = true;
+    let cancelled = false;
+    (async () => {
+      await loadVariantMap();
+      if (cancelled) return;
+      for (const { variantId, qty } of entries) {
+        const match = findHandleByVariantNumericId(variantId);
+        if (!match) continue;
+        const product = PRODUCTS.find((p) => p.handle === match.handle);
+        if (!product) continue;
+        const alreadyInCart = itemsRef.current.some((i) => i.handle === product.handle);
+        if (!alreadyInCart) addItem(product, qty);
+      }
+      navigate("/cart", { replace: true });
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [location.pathname, addItem, navigate]);
 
   if (items.length === 0) {
     return (
