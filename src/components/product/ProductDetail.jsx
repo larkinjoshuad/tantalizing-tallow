@@ -66,14 +66,7 @@ export default function ProductDetail() {
         <ArrowLeft size={18} /> Back to Products
       </Link>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: 48,
-          alignItems: "start",
-        }}
-      >
+      <div className="product-detail-grid">
         {/* Image */}
         <div style={{ borderRadius: 20, overflow: "hidden", position: "relative" }}>
           <img
@@ -169,7 +162,7 @@ export default function ProductDetail() {
           </div>
 
           {/* Qty + Add to Cart */}
-          <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 20 }}>
+          <div className="product-purchase-controls" style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 20 }}>
             <div
               style={{
                 display: "flex",
@@ -181,7 +174,9 @@ export default function ProductDetail() {
               }}
             >
               <button
-                onClick={() => setQty(Math.max(1, qty - 1))}
+                type="button"
+                aria-label="Decrease quantity"
+                onClick={() => setQty((current) => Math.max(1, current - 1))}
                 style={{
                   background: "none",
                   border: "none",
@@ -190,13 +185,21 @@ export default function ProductDetail() {
                   cursor: "pointer",
                 }}
               >
-                <Minus size={16} />
+                <Minus size={16} aria-hidden="true" />
               </button>
-              <span style={{ color: C.text, padding: "0 16px", fontSize: 16, fontWeight: 600 }}>
+              <span
+                role="status"
+                aria-label="Quantity"
+                aria-live="polite"
+                aria-atomic="true"
+                style={{ color: C.text, padding: "0 16px", fontSize: 16, fontWeight: 600 }}
+              >
                 {qty}
               </span>
               <button
-                onClick={() => setQty(qty + 1)}
+                type="button"
+                aria-label="Increase quantity"
+                onClick={() => setQty((current) => current + 1)}
                 style={{
                   background: "none",
                   border: "none",
@@ -205,13 +208,12 @@ export default function ProductDetail() {
                   cursor: "pointer",
                 }}
               >
-                <Plus size={16} />
+                <Plus size={16} aria-hidden="true" />
               </button>
             </div>
             <button
               onClick={() => addItem(product, qty)}
               style={{
-                flex: 1,
                 padding: "14px 32px",
                 background: `linear-gradient(135deg, ${C.gold}, ${C.goldLight})`,
                 border: "none",

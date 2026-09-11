@@ -14,10 +14,8 @@ export default function Footer() {
     >
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
         <div
+          className="footer-grid"
           style={{
-            display: "grid",
-            gridTemplateColumns: "2fr 1fr 1fr 1fr",
-            gap: 48,
             marginBottom: 40,
           }}
         >
@@ -120,7 +118,7 @@ export default function Footer() {
           <span style={{ color: C.textMuted, fontSize: 13 }}>
             &copy; 2026 Tantalizing Tallow. Checkout secured by Shopify.
           </span>
-          <div style={{ display: "flex", gap: 12 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
             {[
               { label: "Privacy Policy", to: "/privacy" },
               { label: "Terms of Service", to: "/terms" },

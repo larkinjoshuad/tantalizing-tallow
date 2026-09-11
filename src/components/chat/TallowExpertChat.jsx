@@ -55,7 +55,7 @@ export default function TallowExpertChat() {
         setTimeout(() => {
           setMessages((p) => [
             ...p,
-            { role: "ai", text: regexResult.text, products: regexResult.products },
+            { role: "ai", text: regexResult.text, products: regexResult.products, sources: regexResult.sources },
           ]);
           setIsTyping(false);
         }, 400 + Math.random() * 600);
@@ -245,6 +245,15 @@ export default function TallowExpertChat() {
                       </strong>
                     )
                   )}
+                  {msg.sources?.map((source) => (
+                    <a
+                      key={source.href}
+                      href={source.href}
+                      style={{ display: "block", marginTop: 8, color: C.goldLight, textDecoration: "underline" }}
+                    >
+                      {source.label}
+                    </a>
+                  ))}
                 </div>
 
                 {/* Product cards */}
@@ -405,6 +414,7 @@ export default function TallowExpertChat() {
             }}
           >
             <input
+              aria-label="Message TallowExpert"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && send()}
@@ -421,6 +431,8 @@ export default function TallowExpertChat() {
               }}
             />
             <button
+              type="button"
+              aria-label="Send message"
               onClick={() => send()}
               style={{
                 background: `linear-gradient(135deg, ${C.gold}, ${C.goldLight})`,
@@ -432,7 +444,7 @@ export default function TallowExpertChat() {
                 alignItems: "center",
               }}
             >
-              <Send size={18} color="#0a0a0a" />
+              <Send size={18} color="#0a0a0a" aria-hidden="true" />
             </button>
           </div>
         </div>

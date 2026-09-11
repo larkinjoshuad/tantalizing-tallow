@@ -9,6 +9,8 @@ import { StaticRouter } from "react-router-dom";
 import { CartProvider } from "./context/CartContext.jsx";
 import Header from "./components/layout/Header.jsx";
 import Footer from "./components/layout/Footer.jsx";
+import CartDrawer from "./components/layout/CartDrawer.jsx";
+import TallowExpertChat from "./components/chat/TallowExpertChat.jsx";
 import HomePage from "./components/home/HomePage.jsx";
 import ProductsPage from "./components/product/ProductsPage.jsx";
 import ProductDetail from "./components/product/ProductDetail.jsx";
@@ -71,7 +73,9 @@ export function render(url) {
             </Routes>
           </main>
           <Footer />
-          {/* CartDrawer and TallowExpertChat are interactive-only — skip in SSR */}
+          {/* Match the client's initial closed state so hydration preserves the page. */}
+          <CartDrawer />
+          <TallowExpertChat />
         </div>
       </CartProvider>
     </StaticRouter>
