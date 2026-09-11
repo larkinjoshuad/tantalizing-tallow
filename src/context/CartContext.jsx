@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback, useEffect } from "react";
+import { createContext, useContext, useState, useCallback, useEffect, useSyncExternalStore } from "react";
 import {
   createCart, addCartLines, getVariantId, buildShopifyCartUrl,
 } from "../lib/shopify";
@@ -10,6 +10,9 @@ const CartContext = createContext(null);
 // a refresh, or the checkout redirect bouncing back to our domain — wiped
 // it and the customer saw "Your cart is empty". Persist to localStorage.
 const CART_STORAGE_KEY = "tt_cart_v1";
+const subscribeToHydration = () => () => {};
+const clientSnapshot = () => true;
+const serverSnapshot = () => false;
 
 function loadPersistedCart() {
   // SSR guard: entry-server renders this provider in Node at build time
@@ -39,6 +42,9 @@ function loadPersistedCart() {
 
 export function CartProvider({ children }) {
   const [items, setItems] = useState(loadPersistedCart);
+  // Match the empty build-time cart for the hydration render, then expose the
+  // saved cart. Keep the real items in state so persistence never clears them.
+  const hasHydrated = useSyncExternalStore(subscribeToHydration, clientSnapshot, serverSnapshot);
   const [shopifyCart, setShopifyCart] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [flash, setFlash] = useState(false);
@@ -182,13 +188,14 @@ export function CartProvider({ children }) {
     setCheckoutLoading(false);
   }, [items]);
 
-  const totalQty = items.reduce((s, i) => s + i.qty, 0);
-  const subtotal = items.reduce((s, i) => s + i.price * i.qty, 0);
+  const visibleItems = hasHydrated ? items : [];
+  const totalQty = visibleItems.reduce((s, i) => s + i.qty, 0);
+  const subtotal = visibleItems.reduce((s, i) => s + i.price * i.qty, 0);
 
   return (
     <CartContext.Provider
       value={{
-        items, addItem, updateQty, removeItem, checkout,
+        items: visibleItems, addItem, updateQty, removeItem, checkout,
         isOpen, setIsOpen, flash, totalQty, subtotal, checkoutLoading,
       }}
     >

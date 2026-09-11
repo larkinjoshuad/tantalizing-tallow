@@ -22,6 +22,8 @@
  *   - New intent: complaint/support
  */
 
+import { PRODUCTS } from "../../lib/constants";
+
 const RESPONSES = {
   greeting:
     "Welcome to Tantalizing Tallow! I'm TallowExpert, your personal skincare advisor. I can help you find the perfect tallow-based products for your skin. What's your skin type or main concern?",
@@ -266,13 +268,15 @@ const RESPONSES = {
 };
 
 // ── Intent patterns → response key (ORDER MATTERS — more specific first) ──
-const INTENT_MAP = [
+const GUARDRAILS = [
   // ── GUARDRAILS (highest priority — intercept before anything else) ──
   // Recipe/DIY — block recipe sharing, homemade instructions, formulation requests
   { pattern: /\brecipe\b|homemade|\bdiy\b|make.*(my own|your own|at home|from scratch)|how.*make.*tallow|how.*render|\brender.*my own\b|\brender.*tallow\b|formul(a|ation)|ingredient.*list.*mak(e|ing)|whip.*my own|batch.*my own/, key: "recipeDiy" },
   // Other brands/competitors — redirect without engaging on competitor products
   { pattern: /\bCeraVe\b|\bDrunk Elephant\b|\bVintage Tradition\b|\bFATCO\b|\bAquaphor\b|\bNourishing Biologicals\b|\bBeekman\b|\bPrimally Pure\b|\bBuffalo Gal\b|\bVintage\s+Tradition\b|\bretinol\b|\btretinoin\b|\baccutane\b/i, key: "otherBrand" },
+];
 
+const INTENT_MAP = [
   // Combo intents (catches "X AND Y" before single-concern patterns)
   { pattern: /\b(dry|acne|oily|sensitive|aging|mature)\b.+\b(and|but|plus|also)\b.+\b(dry|dryness|acne|oily|sensitive|aging|wrinkle|breakout|flaky)\b/, key: "comboIntent" },
   { pattern: /combination skin/, key: "comboIntent" },
@@ -390,12 +394,61 @@ function resolve(key) {
   return obj;
 }
 
+const normalizeProductName = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+const PRODUCT_ALIASES = { 12: ["Luxe"] };
+const NET_CONTENTS_QUESTION = /\bnet[\s-]*(?:contents?|weight|volume)\b|\b(?:ounces?|grams?|millilit(?:er|re)s?|oz|ml)\b|\b(?:jar|container|bottle|package|product|pack)\s+(?:size|weight|volume)\b|\b(?:size|weight|volume)\s+(?:of|is|does|for)\b|\b(?:what|which|exact)\s+(?:is\s+(?:the\s+)?)?(?:size|weight|volume)\b|\bhow\s+(?:big|large)\b/i;
+
+function productFacts(input) {
+  const asksContents = NET_CONTENTS_QUESTION.test(input);
+  const asksIngredients = /\bingredients?\b/i.test(input);
+  if (!asksContents && !asksIngredients) return null;
+
+  const normalized = ` ${normalizeProductName(input)} `;
+  const matches = PRODUCTS.filter((product) =>
+    [product.name, product.handle, ...(PRODUCT_ALIASES[product.id] || [])].some((name) =>
+      normalized.includes(` ${normalizeProductName(name)} `)
+    )
+  );
+  // Generic ingredient/suitability questions keep their existing routing.
+  if (!asksContents && matches.length === 0) return null;
+  if (matches.length !== 1) {
+    return {
+      text: "Which product do you mean? Please give one product name so I can check its listed ingredients and whether its net weight or volume is established.",
+      products: [],
+      sources: [],
+    };
+  }
+
+  const product = matches[0];
+  const parts = [];
+  // The current shared listing catalog has ingredients but no authoritative
+  // net-content field. Price, product IDs and wording in the question are not sizes.
+  if (asksContents) {
+    parts.push(`The exact net weight or volume of **${product.name}** is unknown from the current product listing available here. It does not establish a size in ounces, grams or milliliters. Check the package label or confirm with Tantalizing Tallow; I haven't verified other brand sources.`);
+  }
+  if (asksIngredients) {
+    parts.push(product.ingredients?.length
+      ? `Listed ingredients for **${product.name}**: ${product.ingredients.join(", ")}.`
+      : `The current product listing available here does not establish a complete ingredient list for **${product.name}**.`);
+  }
+  return {
+    text: parts.join("\n\n"),
+    products: [],
+    sources: [{ label: `${product.name} product listing`, href: `/product/${product.handle}` }],
+  };
+}
+
 /**
  * Sync regex engine — returns { text, products, source } instantly.
  * source: "regex" if matched, "fallback" if no pattern hit.
  */
 export function getAIResponse(input) {
   const lower = input.toLowerCase();
+  for (const { pattern, key } of GUARDRAILS) {
+    if (pattern.test(lower)) return { ...resolve(key), source: "regex" };
+  }
+  const facts = productFacts(lower);
+  if (facts) return { ...facts, source: "regex" };
   for (const { pattern, key } of INTENT_MAP) {
     if (pattern.test(lower)) {
       const res = resolve(key);
